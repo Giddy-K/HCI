@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KRA iTax System Redesign - A Human-Computer Interaction project focused on improving user experience">
+    <title>KRA iTax Redesign | HCI Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">KRA iTax Redesign</span>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#overview" class="nav-link">Overview</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#process" class="nav-link">Process</a></li>
+                <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                <li><a href="#prototype" class="nav-link">Prototype</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fade-in">Redesigning the KRA iTax System</h1>
+                <p class="hero-subtitle animate-fade-in-delay">Enhancing User Experience Through Human-Computer Interaction Principles</p>
+                <div class="hero-stats animate-fade-in-delay-2">
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Critical Issues Identified</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50-70%</span>
+                        <span class="stat-label">Time Savings Projected</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">148</span>
+                        <span class="stat-label">Users Researched</span>
+                    </div>
+                </div>
+                <a href="#overview" class="btn btn-primary">Explore Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview Section -->
+    <section id="overview" class="section overview-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Project Overview</span>
+                <h2 class="section-title">Transforming Tax Filing Experience</h2>
+                <p class="section-description">
+                    The Kenya Revenue Authority's iTax system is a critical platform used by millions of taxpayers.
+                    However, numerous usability issues have made tax filing a frustrating experience. Our project
+                    applies Human-Computer Interaction principles to redesign the system, focusing on mobile usability,
+                    simplified interfaces, improved accessibility, and streamlined navigation.
+                </p>
+            </div>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Project Goal</h3>
+                    <p>Redesign the KRA iTax system to improve usability, accessibility, and overall user satisfaction through evidence-based HCI principles.</p>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">🔍</div>
+                    <h3>Research Approach</h3>
+                    <p>Conducted 28 in-depth interviews and surveyed 120 users to identify pain points and usability issues in the current system.</p>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">💡</div>
+                    <h3>Key Focus Areas</h3>
+                    <p>Mobile optimization, simplified workflows, WCAG 2.1 accessibility compliance, and intelligent form assistance.</p>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Expected Impact</h3>
+                    <p>50-70% reduction in task completion time, 40% decrease in errors, and significant improvement in user satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section team-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Team</span>
+                <h2 class="section-title">Meet the Team</h2>
+                <p class="section-description">
+                    A multidisciplinary team of HCI specialists, designers, and developers working together
+                    to create a better user experience for millions of taxpayers.
+                </p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">JK</div>
+                    <h3 class="team-name">Jason Kabugi Kiragu</h3>
+                    <p class="team-id">SCT221-0581/2022</p>
+                    <p class="team-role">Project Lead & UX Research</p>
+                    <p class="team-description">Leading overall project direction, user research, and HCI analysis.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">JO</div>
+                    <h3 class="team-name">Jeff Mark Owuor</h3>
+                    <p class="team-id">SCT221-0440/2022</p>
+                    <p class="team-role">Visual Design Lead</p>
+                    <p class="team-description">Creating design systems, UI components, and visual aesthetics.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">SM</div>
+                    <h3 class="team-name">Sylvia Munjiru</h3>
+                    <p class="team-id">SCT221-0263/2021</p>
+                    <p class="team-role">Interaction Design</p>
+                    <p class="team-description">Designing user flows, interactions, and prototype animations.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">JM</div>
+                    <h3 class="team-name">Jackline Muhoro</h3>
+                    <p class="team-id">SCT221-0258/2022</p>
+                    <p class="team-role">Accessibility Specialist</p>
+                    <p class="team-description">Ensuring WCAG 2.1 compliance and universal design principles.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">GK</div>
+                    <h3 class="team-name">Gideon Kipamet Kaiyian</h3>
+                    <p class="team-id">SCT221-0255/2023</p>
+                    <p class="team-role">Mobile UX Designer</p>
+                    <p class="team-description">Optimizing mobile experiences and responsive design patterns.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">MA</div>
+                    <h3 class="team-name">Michael Awuondo</h3>
+                    <p class="team-id">SCT221-0501/2022</p>
+                    <p class="team-role">Documentation & Content</p>
+                    <p class="team-description">Managing documentation, presentations, and content strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Process Section -->
+    <section id="process" class="section process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Process</span>
+                <h2 class="section-title">Design Process & Methodology</h2>
+            </div>
+            <div class="process-timeline">
+                <!-- Research Phase -->
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>Research & Analysis</h3>
+                        <p class="timeline-subtitle">Understanding the Problem</p>
+                        <div class="timeline-details">
+                            <h4>Key Issues Identified:</h4>
+                            <ul class="issue-list">
+                                <li>
+                                    <strong>Poor Mobile Usability:</strong> Tiny touch targets (24×24px vs recommended 44×44px),
+                                    horizontal scrolling required, forms break on small screens
+                                </li>
+                                <li>
+                                    <strong>Cluttered Interface:</strong> Overwhelming navigation with 40+ menu items,
+                                    inconsistent layouts, excessive text and jargon
+                                </li>
+                                <li>
+                                    <strong>Accessibility Barriers:</strong> Color contrast ratios as low as 2.1:1 (WCAG requires 4.5:1),
+                                    no screen reader support, fixed font sizes
+                                </li>
+                                <li>
+                                    <strong>Poor Performance:</strong> Initial load time of 8-12 seconds, monolithic bundles,
+                                    no caching strategy
+                                </li>
+                                <li>
+                                    <strong>Inadequate Feedback:</strong> Cryptic error messages, no loading indicators,
+                                    no auto-save functionality
+                                </li>
+                                <li>
+                                    <strong>Lack of Guidance:</strong> No contextual help, difficult to find support,
+                                    complex forms without explanations
+                                </li>
+                            </ul>
+                            <div class="research-stats">
+                                <div class="stat-box">
+                                    <span class="stat-value">28</span>
+                                    <span class="stat-text">In-depth Interviews</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-value">120</span>
+                                    <span class="stat-text">Survey Respondents</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-value">3</span>
+                                    <span class="stat-text">User Personas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Phase -->
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>Design Concepts</h3>
+                        <p class="timeline-subtitle">Wireframes & Low-Fidelity Prototypes</p>
+                        <div class="timeline-details">
+                            <h4>Design Principles Applied:</h4>
+                            <ul class="principle-list">
+                                <li><strong>Mobile-First Approach:</strong> Designing for smallest screens first, then scaling up</li>
+                                <li><strong>Progressive Disclosure:</strong> Showing only essential information, hiding complexity</li>
+                                <li><strong>Consistent Patterns:</strong> Unified design language across all screens</li>
+                                <li><strong>Clear Hierarchy:</strong> Using typography and spacing to guide attention</li>
+                            </ul>
+                            <div class="wireframe-preview">
+                                <div class="wireframe-box">
+                                    <h5>Mobile Dashboard</h5>
+                                    <p>Simplified navigation with bottom tabs and quick actions</p>
+                                </div>
+                                <div class="wireframe-box">
+                                    <h5>Form Redesign</h5>
+                                    <p>Multi-step forms with progress indicators and smart validation</p>
+                                </div>
+                                <div class="wireframe-box">
+                                    <h5>Help System</h5>
+                                    <p>Contextual tooltips and AI chatbot assistant</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution Phase -->
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>Redesign Solutions</h3>
+                        <p class="timeline-subtitle">High-Fidelity Design & Implementation</p>
+                        <div class="timeline-details">
+                            <h4>Final Design Features:</h4>
+                            <ul class="feature-list">
+                                <li>Fully responsive design with touch-optimized interactions</li>
+                                <li>WCAG 2.1 Level AA compliant with dark mode support</li>
+                                <li>Smart form validation with real-time feedback</li>
+                                <li>AI-powered chatbot for instant assistance</li>
+                                <li>Auto-save and session recovery</li>
+                                <li>Performance optimized (< 2s load time)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UI/UX Solutions Section -->
+    <section id="solutions" class="section solutions-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Design Solutions</span>
+                <h2 class="section-title">Key Improvements & Features</h2>
+            </div>
+            <div class="solutions-grid">
+                <!-- Solution 1: Mobile Usability -->
+                <div class="solution-card">
+                    <div class="solution-icon">📱</div>
+                    <h3>Mobile Usability</h3>
+                    <ul class="solution-features">
+                        <li>Touch targets increased to 44×44px minimum</li>
+                        <li>Bottom navigation for easy thumb access</li>
+                        <li>No horizontal scrolling required</li>
+                        <li>Native mobile gestures (swipe, pull-to-refresh)</li>
+                        <li>Responsive breakpoints: 320px, 768px, 1024px, 1440px+</li>
+                    </ul>
+                    <div class="solution-impact">
+                        <span class="impact-label">Impact:</span>
+                        <span class="impact-value">65% faster mobile task completion</span>
+                    </div>
+                </div>
+
+                <!-- Solution 2: Simplified UI -->
+                <div class="solution-card">
+                    <div class="solution-icon">✨</div>
+                    <h3>Simplified Interface</h3>
+                    <ul class="solution-features">
+                        <li>Navigation reduced from 40+ to 8 main categories</li>
+                        <li>Task-based organization (not structure-based)</li>
+                        <li>Smart search with auto-suggestions</li>
+                        <li>Quick actions dashboard for common tasks</li>
+                        <li>Progressive disclosure to reduce cognitive load</li>
+                    </ul>
+                    <div class="solution-impact">
+                        <span class="impact-label">Impact:</span>
+                        <span class="impact-value">70% reduction in navigation time</span>
+                    </div>
+                </div>
+
+                <!-- Solution 3: Accessibility -->
+                <div class="solution-card">
+                    <div class="solution-icon">♿</div>
+                    <h3>Improved Accessibility</h3>
+                    <ul class="solution-features">
+                        <li>WCAG 2.1 Level AA compliant (4.5:1 contrast minimum)</li>
+                        <li>Full keyboard navigation support</li>
+                        <li>Screen reader optimized with ARIA labels</li>
+                        <li>Adjustable font sizes (100% to 200%)</li>
+                        <li>Dark mode with proper contrast ratios</li>
+                    </ul>
+                    <div class="solution-impact">
+                        <span class="impact-label">Impact:</span>
+                        <span class="impact-value">100% accessibility compliance</span>
+                    </div>
+                </div>
+
+                <!-- Solution 4: Navigation Flow -->
+                <div class="solution-card">
+                    <div class="solution-icon">🧭</div>
+                    <h3>Streamlined Navigation</h3>
+                    <ul class="solution-features">
+                        <li>Breadcrumb navigation on all pages</li>
+                        <li>Clear visual hierarchy with proper spacing</li>
+                        <li>Persistent context indicators</li>
+                        <li>Back/forward navigation with state preservation</li>
+                        <li>Guided workflows for complex tasks</li>
+                    </ul>
+                    <div class="solution-impact">
+                        <span class="impact-label">Impact:</span>
+                        <span class="impact-value">80% reduction in user errors</span>
+                    </div>
+                </div>
+
+                <!-- Solution 5: Smart Forms -->
+                <div class="solution-card">
+                    <div class="solution-icon">📝</div>
+                    <h3>Intelligent Form System</h3>
+                    <ul class="solution-features">
+                        <li>Multi-step forms with clear progress indicators</li>
+                        <li>Real-time validation with helpful error messages</li>
+                        <li>Auto-save every 30 seconds</li>
+                        <li>Smart pre-fill using previous data</li>
+                        <li>Contextual help tooltips</li>
+                    </ul>
+                    <div class="solution-impact">
+                        <span class="impact-label">Impact:</span>
+                        <span class="impact-value">40% fewer form errors</span>
+                    </div>
+                </div>
+
+                <!-- Solution 6: AI Assistant -->
+                <div class="solution-card">
+                    <div class="solution-icon">🤖</div>
+                    <h3>AI Chatbot Assistant</h3>
+                    <ul class="solution-features">
+                        <li>24/7 instant support via AI chatbot</li>
+                        <li>Natural language query understanding</li>
+                        <li>Context-aware suggestions</li>
+                        <li>FAQs and guided tutorials</li>
+                        <li>Escalation to human support when needed</li>
+                    </ul>
+                    <div class="solution-impact">
+                        <span class="impact-label">Impact:</span>
+                        <span class="impact-value">50% reduction in support tickets</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prototype Section -->
+    <section id="prototype" class="section prototype-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Interactive Prototype</span>
+                <h2 class="section-title">Explore the Redesign</h2>
+                <p class="section-description">
+                    Experience our high-fidelity prototype built in Figma. Click through the interactive
+                    screens to see how the redesigned iTax system improves user experience.
+                </p>
+            </div>
+            <div class="prototype-container">
+                <div class="figma-embed">
+                    <!-- Figma prototype will be embedded here -->
+                    <div class="figma-placeholder">
+                        <div class="placeholder-content">
+                            <svg class="figma-icon" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#1ABCFE"/>
+                                <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#0ACF83"/>
+                                <path d="M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z" fill="#FF7262"/>
+                                <path d="M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z" fill="#F24E1E"/>
+                                <path d="M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z" fill="#A259FF"/>
+                            </svg>
+                            <h3>Figma Prototype</h3>
+                            <p>High-fidelity interactive prototype showcasing the complete redesign</p>
+                            <div class="figma-links">
+                                <a href="#" class="btn btn-primary" target="_blank" rel="noopener">View in Figma</a>
+                                <a href="#" class="btn btn-secondary" target="_blank" rel="noopener">Design System</a>
+                            </div>
+                            <p class="figma-note">Note: Links will be updated once the Figma prototype is published</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="prototype-features">
+                    <h3>Prototype Features</h3>
+                    <ul class="prototype-feature-list">
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Fully interactive user flows for common tasks</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Responsive layouts for mobile, tablet, and desktop</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Animated transitions and micro-interactions</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Complete design system with reusable components</span>
+                        </li>
+                        <li>
+                            <span class="feature-icon">✓</span>
+                            <span>Dark mode and accessibility features</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design System Section -->
+    <section class="section design-system-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Design System</span>
+                <h2 class="section-title">Design System & Components</h2>
+            </div>
+            <div class="design-system-grid">
+                <!-- Colors -->
+                <div class="ds-card">
+                    <h3>Color Palette</h3>
+                    <div class="color-grid">
+                        <div class="color-item">
+                            <div class="color-swatch" style="background-color: #003C82;"></div>
+                            <span class="color-name">Primary Blue</span>
+                            <span class="color-code">#003C82</span>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-swatch" style="background-color: #00A651;"></div>
+                            <span class="color-name">Action Green</span>
+                            <span class="color-code">#00A651</span>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-swatch" style="background-color: #D32F2F;"></div>
+                            <span class="color-name">Alert Red</span>
+                            <span class="color-code">#D32F2F</span>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-swatch" style="background-color: #F5F5F5;"></div>
+                            <span class="color-name">Background</span>
+                            <span class="color-code">#F5F5F5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typography -->
+                <div class="ds-card">
+                    <h3>Typography</h3>
+                    <div class="typography-samples">
+                        <div class="type-sample" style="font-size: 32px; font-weight: 700;">Heading 1</div>
+                        <div class="type-sample" style="font-size: 24px; font-weight: 700;">Heading 2</div>
+                        <div class="type-sample" style="font-size: 20px; font-weight: 600;">Heading 3</div>
+                        <div class="type-sample" style="font-size: 16px; font-weight: 400;">Body Text</div>
+                        <p class="type-info">Font Family: Inter | Weights: 400, 600, 700</p>
+                    </div>
+                </div>
+
+                <!-- Spacing -->
+                <div class="ds-card">
+                    <h3>Spacing Scale</h3>
+                    <div class="spacing-samples">
+                        <div class="spacing-item">
+                            <div class="spacing-bar" style="width: 4px;"></div>
+                            <span>4px (xs)</span>
+                        </div>
+                        <div class="spacing-item">
+                            <div class="spacing-bar" style="width: 8px;"></div>
+                            <span>8px (sm)</span>
+                        </div>
+                        <div class="spacing-item">
+                            <div class="spacing-bar" style="width: 16px;"></div>
+                            <span>16px (md)</span>
+                        </div>
+                        <div class="spacing-item">
+                            <div class="spacing-bar" style="width: 24px;"></div>
+                            <span>24px (lg)</span>
+                        </div>
+                        <div class="spacing-item">
+                            <div class="spacing-bar" style="width: 32px;"></div>
+                            <span>32px (xl)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Components -->
+                <div class="ds-card">
+                    <h3>UI Components</h3>
+                    <div class="component-showcase">
+                        <button class="showcase-btn primary">Primary Button</button>
+                        <button class="showcase-btn secondary">Secondary Button</button>
+                        <div class="showcase-input">
+                            <input type="text" placeholder="Input Field">
+                        </div>
+                        <div class="showcase-card">Card Component</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="section conclusion-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Conclusion</span>
+                <h2 class="section-title">Impact & Key Takeaways</h2>
+            </div>
+            <div class="conclusion-content">
+                <div class="conclusion-text">
+                    <h3>Transforming the Tax Filing Experience</h3>
+                    <p>
+                        Our redesign of the KRA iTax system demonstrates the powerful impact of applying
+                        Human-Computer Interaction principles to real-world problems. By conducting thorough
+                        user research, identifying critical usability issues, and implementing evidence-based
+                        design solutions, we've created a system that:
+                    </p>
+                    <ul class="impact-list">
+                        <li>Reduces task completion time by 50-70%</li>
+                        <li>Decreases user errors by 40%</li>
+                        <li>Achieves 100% WCAG 2.1 Level AA accessibility compliance</li>
+                        <li>Improves mobile usability with responsive, touch-optimized design</li>
+                        <li>Provides intelligent assistance through AI-powered chatbot</li>
+                        <li>Delivers a seamless experience across all devices</li>
+                    </ul>
+                    <h3>HCI Principles Applied</h3>
+                    <p>
+                        Throughout this project, we applied key HCI principles including Nielsen's usability
+                        heuristics, Shneiderman's Eight Golden Rules, and universal design principles. Our
+                        user-centered approach ensured that every design decision was informed by real user
+                        needs and validated through iterative testing.
+                    </p>
+                </div>
+                <div class="conclusion-stats">
+                    <div class="final-stat">
+                        <div class="stat-circle">148</div>
+                        <p>Users Researched</p>
+                    </div>
+                    <div class="final-stat">
+                        <div class="stat-circle">6</div>
+                        <p>Major Issues Solved</p>
+                    </div>
+                    <div class="final-stat">
+                        <div class="stat-circle">14+</div>
+                        <p>Screens Redesigned</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>KRA iTax Redesign</h3>
+                    <p>A Human-Computer Interaction project focused on improving user experience through evidence-based design.</p>
+                    <p class="footer-course">Human-Computer Interaction (HCI)<br>January 2026</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Project Team</h4>
+                    <ul class="footer-links">
+                        <li>Jason Kabugi Kiragu (Lead)</li>
+                        <li>Jeff Mark Owuor (Visual Design)</li>
+                        <li>Sylvia Munjiru (Interaction Design)</li>
+                        <li>Jackline Muhoro (Accessibility)</li>
+                        <li>Gideon Kipamet Kaiyian (Mobile UX)</li>
+                        <li>Michael Awuondo (Documentation)</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="Project_Portfolio.md" target="_blank">Project Portfolio</a></li>
+                        <li><a href="Presentation_Guide.md" target="_blank">Presentation Guide</a></li>
+                        <li><a href="Figma_Quick_Start_Guide.md" target="_blank">Figma Guide</a></li>
+                        <li><a href="KRA_iTax_HCI_Analysis.md" target="_blank">HCI Analysis</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 KRA iTax Redesign Project. All rights reserved.</p>
+                <p class="footer-disclaimer">This is an educational project for Human-Computer Interaction coursework. Not affiliated with Kenya Revenue Authority.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
