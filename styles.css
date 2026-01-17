@@ -734,6 +734,17 @@ body {
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     overflow: hidden;
+    padding: var(--spacing-lg);
+}
+
+.figma-embed iframe {
+    width: 100%;
+    min-height: 500px;
+    border-radius: var(--radius-md);
+}
+
+.figma-actions {
+    padding-top: var(--spacing-md);
 }
 
 .figma-placeholder {
@@ -1294,6 +1305,20 @@ body {
 
     .design-system-grid {
         grid-template-columns: 1fr;
+    }
+
+    .figma-embed {
+        padding: var(--spacing-md);
+    }
+
+    .figma-embed iframe {
+        min-height: 350px;
+        height: 400px;
+    }
+
+    .figma-links {
+        flex-direction: column;
+        gap: var(--spacing-sm);
     }
 
     .footer-content {
