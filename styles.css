@@ -103,6 +103,9 @@ body {
 
 .section {
     padding: var(--spacing-4xl) 0;
+    position: relative;
+    z-index: 1;
+    background-color: inherit;
 }
 
 /* ===================================
@@ -204,6 +207,7 @@ body {
     color: var(--white);
     position: relative;
     overflow: hidden;
+    z-index: 0;
 }
 
 .hero::before {
@@ -2545,16 +2549,18 @@ body {
         right: 0;
         background-color: var(--white);
         flex-direction: column;
-        padding: var(--spacing-lg);
+        padding: 0 var(--spacing-lg);
         box-shadow: var(--shadow-lg);
-        gap: var(--spacing-md);
+        gap: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height var(--transition-slow);
+        transition: max-height var(--transition-slow), padding var(--transition-slow), gap var(--transition-slow);
     }
 
     .nav-menu.active {
         max-height: 500px;
+        padding: var(--spacing-lg);
+        gap: var(--spacing-md);
     }
 
     .hero {
@@ -3577,6 +3583,17 @@ body {
     position: sticky;
     top: 70px;
     z-index: 100;
+}
+
+/* Scroll margin for anchor navigation - accounts for fixed navbar + sticky breadcrumb */
+.project-page .section[id] {
+    scroll-margin-top: 140px;
+}
+
+@media (max-width: 768px) {
+    .project-page .section[id] {
+        scroll-margin-top: 130px;
+    }
 }
 
 .breadcrumb-container .container {
