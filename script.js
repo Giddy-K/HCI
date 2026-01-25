@@ -1,4 +1,10 @@
 // ===================================
+// KRA iTax Redesign Portfolio
+// Redline UX Collective
+// JavaScript Interactions
+// ===================================
+
+// ===================================
 // Navigation Toggle for Mobile
 // ===================================
 const navToggle = document.getElementById('navToggle');
@@ -122,7 +128,7 @@ window.addEventListener('scroll', () => {
 // ===================================
 const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -136,7 +142,9 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all cards and sections
 const animateElements = document.querySelectorAll(
-    '.overview-card, .team-card, .solution-card, .timeline-item, .ds-card, .final-stat'
+    '.issue-card, .persona-card, .team-card, .feature-card, .scenario-card, .exercise-card, ' +
+    '.assessment-card, .method-card, .criteria-card, .ds-card, .final-stat, .slide-card, ' +
+    '.alternative-block, .analysis-card, .point-card, .summary-card'
 );
 
 animateElements.forEach(el => {
@@ -159,7 +167,7 @@ document.head.appendChild(style);
 // ===================================
 // Counter Animation for Stats
 // ===================================
-function animateCounter(element, target, duration = 2000) {
+function animateCounter(element, target, duration = 2000, suffix = '') {
     const start = 0;
     const increment = target / (duration / 16);
     let current = start;
@@ -167,10 +175,10 @@ function animateCounter(element, target, duration = 2000) {
     const updateCounter = () => {
         current += increment;
         if (current < target) {
-            element.textContent = Math.floor(current);
+            element.textContent = Math.floor(current) + suffix;
             requestAnimationFrame(updateCounter);
         } else {
-            element.textContent = target;
+            element.textContent = target + suffix;
         }
     };
 
@@ -178,25 +186,52 @@ function animateCounter(element, target, duration = 2000) {
 }
 
 // Animate stats when they come into view
-const statNumbers = document.querySelectorAll('.stat-number');
+const statNumbers = document.querySelectorAll('.stat-number, .problem-number, .metric-value, .method-number, .issues-number, .ab-value');
 const statObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
             const target = entry.target.textContent.trim();
 
-            // Check if it's a number
-            if (!isNaN(target)) {
+            // Check if it's a pure number
+            if (/^\d+$/.test(target)) {
                 animateCounter(entry.target, parseInt(target));
             }
             // Check if it's a percentage
             else if (target.includes('%')) {
                 const number = parseInt(target);
-                const tempElement = entry.target;
-                animateCounter({
-                    set textContent(val) {
-                        tempElement.textContent = val + '%';
-                    }
-                }, number);
+                animateCounter(entry.target, number, 2000, '%');
+            }
+            // Check if it ends with + (like 7M+)
+            else if (target.includes('+')) {
+                const parts = target.match(/^([\d.]+)([A-Za-z]*)\+$/);
+                if (parts) {
+                    const num = parseFloat(parts[1]);
+                    const unit = parts[2];
+                    animateCounter(entry.target, num, 2000, unit + '+');
+                }
+            }
+            // Check if it's a time format (like "35-45 min")
+            else if (target.includes('min')) {
+                // Don't animate time ranges, just show them
+            }
+            // Handle decimal numbers
+            else if (/^[\d.]+$/.test(target)) {
+                const num = parseFloat(target);
+                if (num < 100) {
+                    // Likely a score like 82.5
+                    let currentVal = 0;
+                    const increment = num / 125;
+                    const animate = () => {
+                        currentVal += increment;
+                        if (currentVal < num) {
+                            entry.target.textContent = currentVal.toFixed(1);
+                            requestAnimationFrame(animate);
+                        } else {
+                            entry.target.textContent = num;
+                        }
+                    };
+                    animate();
+                }
             }
 
             entry.target.classList.add('counted');
@@ -210,7 +245,54 @@ statNumbers.forEach(stat => {
 });
 
 // ===================================
-// Lazy Loading for Images (if any are added)
+// Frustration Bars Animation
+// ===================================
+const frustrationBars = document.querySelectorAll('.frustration-bar');
+const frustrationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const targetWidth = entry.target.style.width;
+            entry.target.style.width = '0';
+            setTimeout(() => {
+                entry.target.style.transition = 'width 1s ease-out';
+                entry.target.style.width = targetWidth;
+            }, 100);
+            frustrationObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+frustrationBars.forEach(bar => {
+    frustrationObserver.observe(bar);
+});
+
+// ===================================
+// Chart Bars Animation
+// ===================================
+const chartBars = document.querySelectorAll('.bar-old, .bar-new, .stat-bar');
+const chartObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+            const targetWidth = entry.target.style.width;
+            if (targetWidth) {
+                entry.target.style.width = '0';
+                setTimeout(() => {
+                    entry.target.style.transition = 'width 0.8s ease-out';
+                    entry.target.style.width = targetWidth;
+                }, 200);
+            }
+            entry.target.classList.add('animated');
+            chartObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.3 });
+
+chartBars.forEach(bar => {
+    chartObserver.observe(bar);
+});
+
+// ===================================
+// Lazy Loading for Images
 // ===================================
 if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries) => {
@@ -231,17 +313,18 @@ if ('IntersectionObserver' in window) {
 }
 
 // ===================================
-// Copy to Clipboard for Code Snippets (if needed)
+// Image Load Error Handling
 // ===================================
-function copyToClipboard(text) {
-    if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-            showNotification('Copied to clipboard!');
-        }).catch(err => {
-            console.error('Failed to copy:', err);
-        });
-    }
-}
+document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+        // Replace with a placeholder if image fails to load
+        this.style.backgroundColor = '#f3f4f6';
+        this.style.display = 'flex';
+        this.style.alignItems = 'center';
+        this.style.justifyContent = 'center';
+        this.alt = 'Image not found';
+    });
+});
 
 // ===================================
 // Notification Toast
@@ -285,7 +368,7 @@ function showNotification(message, duration = 3000) {
 // ===================================
 document.addEventListener('keydown', (e) => {
     // Press 'Escape' to close mobile menu
-    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+    if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
         navMenu.classList.remove('active');
         navToggle.classList.remove('active');
     }
@@ -324,21 +407,21 @@ focusStyle.textContent = `
     }
 
     *:focus-visible {
-        outline: 2px solid #003C82;
+        outline: 2px solid #DC2626;
         outline-offset: 2px;
     }
 `;
 document.head.appendChild(focusStyle);
 
 // ===================================
-// Parallax Effect for Hero Section (Optional)
+// Parallax Effect for Hero Section
 // ===================================
 const hero = document.querySelector('.hero');
 
 if (hero) {
     window.addEventListener('scroll', () => {
         const scrolled = window.scrollY;
-        const parallaxSpeed = 0.5;
+        const parallaxSpeed = 0.3;
 
         if (scrolled < hero.offsetHeight) {
             hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
@@ -347,7 +430,7 @@ if (hero) {
 }
 
 // ===================================
-// Progress Bar for Page Scroll (Optional)
+// Progress Bar for Page Scroll
 // ===================================
 function createProgressBar() {
     const progressBar = document.createElement('div');
@@ -357,7 +440,7 @@ function createProgressBar() {
         top: 0;
         left: 0;
         height: 3px;
-        background: linear-gradient(to right, #003C82, #00A651);
+        background: linear-gradient(to right, #DC2626, #16A34A);
         width: 0%;
         z-index: 10000;
         transition: width 0.1s ease-out;
@@ -371,89 +454,75 @@ function createProgressBar() {
     });
 }
 
-// Uncomment to enable progress bar
-// createProgressBar();
+// Enable progress bar
+createProgressBar();
 
 // ===================================
-// Form Validation (if forms are added)
+// Section Progress Indicator
 // ===================================
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
+function updateSectionIndicator() {
+    const sections = document.querySelectorAll('.section[id]');
+    const total = sections.length;
+    let currentIndex = 0;
 
-// ===================================
-// Dark Mode Toggle (Optional Feature)
-// ===================================
-function initDarkMode() {
-    const darkModeToggle = document.createElement('button');
-    darkModeToggle.id = 'dark-mode-toggle';
-    darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
-    darkModeToggle.innerHTML = `
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3"/>
-            <line x1="12" y1="21" x2="12" y2="23"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-            <line x1="1" y1="12" x2="3" y2="12"/>
-            <line x1="21" y1="12" x2="23" y2="12"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-        </svg>
-        <svg class="moon-icon" style="display: none;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-    `;
-    darkModeToggle.style.cssText = `
-        position: fixed;
-        bottom: 90px;
-        right: 32px;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background-color: #003C82;
-        color: white;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        transition: all 0.2s ease-in-out;
-        z-index: 1020;
-    `;
-
-    darkModeToggle.querySelector('svg').style.cssText = 'width: 24px; height: 24px;';
-
-    darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const sunIcon = darkModeToggle.querySelector('.sun-icon');
-        const moonIcon = darkModeToggle.querySelector('.moon-icon');
-
-        if (document.body.classList.contains('dark-mode')) {
-            sunIcon.style.display = 'none';
-            moonIcon.style.display = 'block';
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            sunIcon.style.display = 'block';
-            moonIcon.style.display = 'none';
-            localStorage.setItem('darkMode', 'disabled');
+    sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight / 2 && rect.bottom > 0) {
+            currentIndex = index + 1;
         }
     });
 
-    // Check for saved dark mode preference
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-        darkModeToggle.querySelector('.sun-icon').style.display = 'none';
-        darkModeToggle.querySelector('.moon-icon').style.display = 'block';
-    }
-
-    document.body.appendChild(darkModeToggle);
+    // You can use this to show current section number
+    // console.log(`Section ${currentIndex} of ${total}`);
 }
 
-// Uncomment to enable dark mode toggle
-// initDarkMode();
+window.addEventListener('scroll', updateSectionIndicator);
+
+// ===================================
+// Smooth Reveal for Research Stats
+// ===================================
+const statBars = document.querySelectorAll('.stat-bar');
+const statBarObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const width = getComputedStyle(entry.target).getPropertyValue('--width');
+            entry.target.style.width = '0';
+            setTimeout(() => {
+                entry.target.style.transition = 'width 1s ease-out';
+                entry.target.style.width = width;
+            }, 100);
+            statBarObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+statBars.forEach(bar => statBarObserver.observe(bar));
+
+// ===================================
+// Print Functionality
+// ===================================
+function printPortfolio() {
+    window.print();
+}
+
+// Add print button functionality if needed
+const printBtn = document.getElementById('printBtn');
+if (printBtn) {
+    printBtn.addEventListener('click', printPortfolio);
+}
+
+// ===================================
+// Initialize on DOM Ready
+// ===================================
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Redline UX Collective - KRA iTax Redesign Portfolio loaded successfully!');
+
+    // Update active nav link on load
+    updateActiveNavLink();
+
+    // Add loaded class to body for any CSS transitions
+    document.body.classList.add('loaded');
+});
 
 // ===================================
 // Performance Monitoring
@@ -464,42 +533,5 @@ if (window.performance && window.performance.timing) {
         const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
 
         console.log(`Page Load Time: ${pageLoadTime}ms`);
-
-        // Log to analytics if available
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'timing_complete', {
-                name: 'page_load',
-                value: pageLoadTime,
-                event_category: 'Performance'
-            });
-        }
-    });
-}
-
-// ===================================
-// Initialize on DOM Ready
-// ===================================
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Portfolio website loaded successfully!');
-
-    // Update active nav link on load
-    updateActiveNavLink();
-
-    // Add any additional initialization here
-});
-
-// ===================================
-// Service Worker Registration (PWA Support)
-// ===================================
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        // Uncomment when service worker file is created
-        // navigator.serviceWorker.register('/sw.js')
-        //     .then(registration => {
-        //         console.log('ServiceWorker registered:', registration);
-        //     })
-        //     .catch(error => {
-        //         console.log('ServiceWorker registration failed:', error);
-        //     });
     });
 }
