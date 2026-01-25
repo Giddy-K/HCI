@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KRA iTax System Redesign - A Human-Computer Interaction project by Redline UX Collective">
+    <title>KRA iTax Redesign | Redline UX Collective | HCI Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="project-page">
+    <!-- Navigation -->
+    <nav class="navbar project-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo-link">
+                    <span class="logo-text">REDLINE</span>
+                    <span class="logo-tagline">UX Collective</span>
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#overview" class="nav-link">Part 1: Overview</a></li>
+                <li><a href="#research" class="nav-link">Part 2: Research</a></li>
+                <li><a href="#alternatives" class="nav-link">Part 3: Alternatives</a></li>
+                <li><a href="#prototype" class="nav-link">Part 4: Prototype</a></li>
+                <li><a href="#evaluation" class="nav-link">Part 5: Results</a></li>
+                <li><a href="#presentation" class="nav-link">Part 6: Presentation</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </span>
+                <a href="index.html#projects" class="breadcrumb-link">Projects</a>
+                <span class="breadcrumb-separator">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </span>
+                <span class="breadcrumb-current">KRA iTax Redesign</span>
+            </nav>
+            <a href="index.html#projects" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Projects
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero project-hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge animate-fade-in">BIT 2305 Human Computer Interface</span>
+                <h1 class="hero-title animate-fade-in">Redesigning the KRA iTax System</h1>
+                <p class="hero-subtitle animate-fade-in-delay">Transforming Tax Filing Experience for 7M+ Kenyan Taxpayers Through Human-Centered Design</p>
+
+                <!-- Project Meta Info -->
+                <div class="project-meta-info animate-fade-in-delay">
+                    <div class="meta-item">
+                        <span class="meta-label">Client</span>
+                        <span class="meta-value">Kenya Revenue Authority</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Duration</span>
+                        <span class="meta-value">3 months (Nov 2024 - Jan 2025)</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Team</span>
+                        <span class="meta-value">Redline UX Collective</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Role</span>
+                        <span class="meta-value">Full UX Redesign - Research, Design, Evaluation</span>
+                    </div>
+                </div>
+
+                <div class="hero-stats animate-fade-in-delay-2">
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Critical Issues Identified</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">66%</span>
+                        <span class="stat-label">Time Savings Achieved</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">148</span>
+                        <span class="stat-label">Users Researched</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">96%</span>
+                        <span class="stat-label">Task Completion Rate</span>
+                    </div>
+                </div>
+                <div class="hero-actions animate-fade-in-delay-2">
+                    <a href="#overview" class="btn btn-primary">Explore Our Work</a>
+                    <a href="#prototype" class="btn btn-secondary-light">View Prototype</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PART 1: PROJECT OVERVIEW
+         ============================================ -->
+    <section id="overview" class="section overview-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Part 1</span>
+                <h2 class="section-title">Project Overview</h2>
+                <p class="section-description">
+                    The Kenya Revenue Authority's iTax system serves over 7 million taxpayers but suffers from
+                    significant usability issues. Our project applies Human-Computer Interaction principles to
+                    redesign the system, addressing 6 critical problems that frustrate users daily.
+                </p>
+            </div>
+
+            <!-- Problem Overview -->
+            <div class="problem-highlight">
+                <div class="problem-stats">
+                    <div class="problem-stat">
+                        <span class="problem-number">68%</span>
+                        <span class="problem-text">of users struggle to complete basic tasks</span>
+                    </div>
+                    <div class="problem-stat">
+                        <span class="problem-number">35-45 min</span>
+                        <span class="problem-text">average task completion time (benchmark: 10-15 min)</span>
+                    </div>
+                    <div class="problem-stat">
+                        <span class="problem-number">35%</span>
+                        <span class="problem-text">error rate during filing</span>
+                    </div>
+                    <div class="problem-stat">
+                        <span class="problem-number">10,000+</span>
+                        <span class="problem-text">monthly helpline calls for basic navigation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 Issues Cards -->
+            <h3 class="subsection-title">The 6 Critical Issues We're Solving</h3>
+            <div class="issues-grid">
+                <div class="issue-card">
+                    <div class="issue-number">01</div>
+                    <div class="issue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3>Poor Mobile Usability</h3>
+                    <p>Interface doesn't adapt well to smaller screens. 58% of users access via mobile but system not optimized.</p>
+                    <ul class="issue-details">
+                        <li>Tiny touch targets (24x24px vs 44x44px recommended)</li>
+                        <li>Horizontal scrolling required</li>
+                        <li>Forms break on small screens</li>
+                    </ul>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-number">02</div>
+                    <div class="issue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>UI/UX Overcrowded Screens</h3>
+                    <p>Too much information, poor visual hierarchy. 20+ options on homepage overwhelm users.</p>
+                    <ul class="issue-details">
+                        <li>40+ menu items causing navigation confusion</li>
+                        <li>Inconsistent layouts across pages</li>
+                        <li>Excessive text and jargon</li>
+                    </ul>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-number">03</div>
+                    <div class="issue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+                        </svg>
+                    </div>
+                    <h3>Poor Accessibility & Inclusion</h3>
+                    <p>No font adjustment, dark mode, or screen reader support. WCAG violations throughout.</p>
+                    <ul class="issue-details">
+                        <li>Color contrast ratios as low as 2.1:1 (need 4.5:1)</li>
+                        <li>No keyboard navigation support</li>
+                        <li>Fixed font sizes exclude visually impaired</li>
+                    </ul>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-number">04</div>
+                    <div class="issue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12,6 12,12 16,14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Slow Performance</h3>
+                    <p>Long loading times, timeouts during peak periods. Average 8.4s page load (benchmark: &lt;3s).</p>
+                    <ul class="issue-details">
+                        <li>Initial load time of 8-12 seconds</li>
+                        <li>Monolithic bundles increase load time</li>
+                        <li>No caching strategy implemented</li>
+                    </ul>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-number">05</div>
+                    <div class="issue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h3>Poor Alert & Notification System</h3>
+                    <p>Unclear error messages like "Error 500" with no explanation. No progress indicators.</p>
+                    <ul class="issue-details">
+                        <li>Cryptic technical error messages</li>
+                        <li>No loading indicators during processing</li>
+                        <li>No auto-save functionality</li>
+                    </ul>
+                </div>
+                <div class="issue-card">
+                    <div class="issue-number">06</div>
+                    <div class="issue-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12" y2="17"></line>
+                        </svg>
+                    </div>
+                    <h3>Lack of Guidance & Onboarding</h3>
+                    <p>No tutorials or clear instructions. 100% of first-timers need external help.</p>
+                    <ul class="issue-details">
+                        <li>No contextual help or tooltips</li>
+                        <li>Complex forms without explanations</li>
+                        <li>Difficult to find support resources</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PART 2: CONTEXTUAL RESEARCH
+         ============================================ -->
+    <section id="research" class="section research-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Part 2</span>
+                <h2 class="section-title">Contextual Research</h2>
+                <p class="section-description">
+                    Comprehensive user research involving 148 participants to understand pain points,
+                    user behaviors, and opportunities for improvement in the KRA iTax system.
+                </p>
+            </div>
+
+            <!-- Problem Statement -->
+            <div class="research-block">
+                <h3 class="subsection-title">2.1 Problem Statement</h3>
+                <div class="problem-statement-card">
+                    <p class="lead-text">
+                        The KRA iTax system serves over <strong>7 million taxpayers</strong> but suffers from
+                        significant usability issues that create barriers to effective tax compliance.
+                    </p>
+                    <div class="problem-metrics">
+                        <div class="metric">
+                            <span class="metric-value">68%</span>
+                            <span class="metric-label">of users struggle to complete basic tasks</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">35-45 min</span>
+                            <span class="metric-label">Average task completion time (benchmark: 10-15 min)</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">35%</span>
+                            <span class="metric-label">Error rate during filing</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">58%</span>
+                            <span class="metric-label">Access via mobile (system not optimized)</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">10,000+</span>
+                            <span class="metric-label">Monthly helpline calls for basic navigation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Personas -->
+            <div class="research-block">
+                <h3 class="subsection-title">2.2 User Research - 5 Personas</h3>
+                <div class="personas-grid">
+                    <!-- Persona 1 -->
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <div class="persona-avatar">SN</div>
+                            <div class="persona-info">
+                                <h4>Sarah Njeri</h4>
+                                <span class="persona-type">Individual Taxpayer</span>
+                            </div>
+                        </div>
+                        <div class="persona-details">
+                            <p><strong>Age:</strong> 32 | <strong>Occupation:</strong> Marketing Manager</p>
+                            <p><strong>Filing Frequency:</strong> 3-4 times yearly</p>
+                            <p class="persona-pain">"I can never find the form I need. Too many options on homepage."</p>
+                            <p><strong>Behavior:</strong> Prefers mobile but system forces desktop use</p>
+                        </div>
+                    </div>
+                    <!-- Persona 2 -->
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <div class="persona-avatar">DO</div>
+                            <div class="persona-info">
+                                <h4>David Otieno</h4>
+                                <span class="persona-type">Small Business Owner</span>
+                            </div>
+                        </div>
+                        <div class="persona-details">
+                            <p><strong>Age:</strong> 45 | <strong>Occupation:</strong> Hardware Store Owner</p>
+                            <p><strong>Filing Frequency:</strong> Monthly VAT, weekly PAYE</p>
+                            <p class="persona-pain">"System is so slow during month-end. Sometimes times out halfway through."</p>
+                            <p><strong>Behavior:</strong> Low tech-savvy, needs simple interface</p>
+                        </div>
+                    </div>
+                    <!-- Persona 3 -->
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <div class="persona-avatar">GW</div>
+                            <div class="persona-info">
+                                <h4>Grace Wanjiru</h4>
+                                <span class="persona-type">Professional Accountant</span>
+                            </div>
+                        </div>
+                        <div class="persona-details">
+                            <p><strong>Age:</strong> 38 | <strong>Occupation:</strong> CPA (50+ clients)</p>
+                            <p><strong>Filing Frequency:</strong> Daily (power user)</p>
+                            <p class="persona-pain">"No bulk operations. I have to file each return individually."</p>
+                            <p><strong>Behavior:</strong> Wants keyboard shortcuts, batch processing</p>
+                        </div>
+                    </div>
+                    <!-- Persona 4 -->
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <div class="persona-avatar">JK</div>
+                            <div class="persona-info">
+                                <h4>John Kamau</h4>
+                                <span class="persona-type">First-Time User</span>
+                            </div>
+                        </div>
+                        <div class="persona-details">
+                            <p><strong>Age:</strong> 24 | <strong>Occupation:</strong> Recent Graduate</p>
+                            <p><strong>Filing Frequency:</strong> First time ever</p>
+                            <p class="persona-pain">"There's no tutorial or guide. I had to Google everything."</p>
+                            <p><strong>Behavior:</strong> High tech-savvy but zero tax knowledge, expects modern UX</p>
+                        </div>
+                    </div>
+                    <!-- Persona 5 -->
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <div class="persona-avatar">MC</div>
+                            <div class="persona-info">
+                                <h4>Margaret Chege</h4>
+                                <span class="persona-type">KRA Customer Service</span>
+                            </div>
+                        </div>
+                        <div class="persona-details">
+                            <p><strong>Age:</strong> 29 | <strong>Occupation:</strong> Support Agent</p>
+                            <p><strong>Role:</strong> Handles user support daily</p>
+                            <p class="persona-pain">"We get the same questions daily: how to reset password, where's the form?"</p>
+                            <p><strong>Insight:</strong> Sees systemic issues from user complaints</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Statistics -->
+                <div class="stats-summary">
+                    <h4>Research Statistics (148 Users)</h4>
+                    <div class="stats-grid">
+                        <div class="stat-block">
+                            <div class="stat-bar" style="--width: 45%"></div>
+                            <span class="stat-label">Individual Taxpayers</span>
+                            <span class="stat-value">45%</span>
+                        </div>
+                        <div class="stat-block">
+                            <div class="stat-bar" style="--width: 30%"></div>
+                            <span class="stat-label">Business Owners</span>
+                            <span class="stat-value">30%</span>
+                        </div>
+                        <div class="stat-block">
+                            <div class="stat-bar" style="--width: 15%"></div>
+                            <span class="stat-label">Accountants</span>
+                            <span class="stat-value">15%</span>
+                        </div>
+                        <div class="stat-block">
+                            <div class="stat-bar" style="--width: 10%"></div>
+                            <span class="stat-label">First-time Users</span>
+                            <span class="stat-value">10%</span>
+                        </div>
+                    </div>
+                    <div class="frustrations-chart">
+                        <h5>Primary User Frustrations</h5>
+                        <div class="frustration-bars">
+                            <div class="frustration-item">
+                                <span class="frustration-label">Navigation Complexity</span>
+                                <div class="frustration-bar-container">
+                                    <div class="frustration-bar" style="width: 78%"></div>
+                                    <span class="frustration-value">78%</span>
+                                </div>
+                            </div>
+                            <div class="frustration-item">
+                                <span class="frustration-label">Mobile Experience</span>
+                                <div class="frustration-bar-container">
+                                    <div class="frustration-bar" style="width: 65%"></div>
+                                    <span class="frustration-value">65%</span>
+                                </div>
+                            </div>
+                            <div class="frustration-item">
+                                <span class="frustration-label">Error Messages</span>
+                                <div class="frustration-bar-container">
+                                    <div class="frustration-bar" style="width: 62%"></div>
+                                    <span class="frustration-value">62%</span>
+                                </div>
+                            </div>
+                            <div class="frustration-item">
+                                <span class="frustration-label">Performance/Speed</span>
+                                <div class="frustration-bar-container">
+                                    <div class="frustration-bar" style="width: 58%"></div>
+                                    <span class="frustration-value">58%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task Analysis -->
+            <div class="research-block">
+                <h3 class="subsection-title">2.3 Task Analysis</h3>
+                <div class="task-analysis">
+                    <div class="task-table">
+                        <div class="task-row task-header">
+                            <span>Task</span>
+                            <span>Current Time</span>
+                            <span>Target Time</span>
+                            <span>Improvement</span>
+                        </div>
+                        <div class="task-row">
+                            <span>File Annual Income Tax Return</span>
+                            <span class="time-bad">45 min</span>
+                            <span class="time-good">12 min</span>
+                            <span class="improvement">73% faster</span>
+                        </div>
+                        <div class="task-row">
+                            <span>Make Tax Payment</span>
+                            <span class="time-bad">15 min</span>
+                            <span class="time-good">5 min</span>
+                            <span class="improvement">67% faster</span>
+                        </div>
+                        <div class="task-row">
+                            <span>Register for KRA PIN</span>
+                            <span class="time-bad">38 min</span>
+                            <span class="time-good">10 min</span>
+                            <span class="improvement">74% faster</span>
+                        </div>
+                        <div class="task-row">
+                            <span>File Monthly VAT Return</span>
+                            <span class="time-bad">67 min</span>
+                            <span class="time-good">15 min</span>
+                            <span class="improvement">78% faster</span>
+                        </div>
+                        <div class="task-row">
+                            <span>Check Tax Compliance Status</span>
+                            <span class="time-bad">10 min</span>
+                            <span class="time-good">2 min</span>
+                            <span class="improvement">80% faster</span>
+                        </div>
+                        <div class="task-row">
+                            <span>Download Tax Documents</span>
+                            <span class="time-bad">12 min</span>
+                            <span class="time-good">3 min</span>
+                            <span class="improvement">75% faster</span>
+                        </div>
+                    </div>
+                    <div class="task-findings">
+                        <h4>Key Findings</h4>
+                        <ul>
+                            <li><strong>8-12 clicks</strong> average to complete tasks</li>
+                            <li><strong>35% error rate</strong> (mostly preventable with better UX)</li>
+                            <li><strong>85% need external help</strong> to complete tasks</li>
+                            <li><strong>Poor mobile experience</strong> affects 58% of users</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Existing System Analysis -->
+            <div class="research-block">
+                <h3 class="subsection-title">2.4 Existing System Analysis</h3>
+                <div class="system-comparison">
+                    <div class="system-image">
+                        <img src="assets/old-itax-system.png" alt="Current iTax System Screenshot" loading="lazy">
+                        <p class="image-caption">Current iTax System Interface</p>
+                    </div>
+                    <div class="system-analysis-grid">
+                        <div class="analysis-card advantages">
+                            <h4>Advantages</h4>
+                            <ul>
+                                <li>Comprehensive functionality (supports all tax types)</li>
+                                <li>7M+ registered users</li>
+                                <li>Good security (SSL/TLS, 2FA available)</li>
+                                <li>Payment integration (M-PESA, banks)</li>
+                            </ul>
+                        </div>
+                        <div class="analysis-card deficiencies">
+                            <h4>Deficiencies (Our 6 Issues)</h4>
+                            <ul>
+                                <li>Not mobile responsive (58% affected)</li>
+                                <li>Overcrowded interface (20+ options on homepage)</li>
+                                <li>No accessibility features (WCAG violations)</li>
+                                <li>8.4s average page load (benchmark: &lt;3s)</li>
+                                <li>Poor error messages ("Error 500")</li>
+                                <li>No onboarding (100% need external help)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usability Criteria -->
+            <div class="research-block">
+                <h3 class="subsection-title">2.5 Usability Criteria (Success Metrics)</h3>
+                <div class="criteria-grid">
+                    <div class="criteria-card">
+                        <span class="criteria-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </span>
+                        <h4>Task Completion Rate</h4>
+                        <span class="criteria-target">&ge;90%</span>
+                    </div>
+                    <div class="criteria-card">
+                        <span class="criteria-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12,6 12,12 16,14"></polyline>
+                            </svg>
+                        </span>
+                        <h4>Time for Complex Tasks</h4>
+                        <span class="criteria-target">&lt;15 minutes</span>
+                    </div>
+                    <div class="criteria-card">
+                        <span class="criteria-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                <line x1="12" y1="9" x2="12" y2="13"></line>
+                            </svg>
+                        </span>
+                        <h4>Error Rate</h4>
+                        <span class="criteria-target">&lt;10%</span>
+                    </div>
+                    <div class="criteria-card">
+                        <span class="criteria-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                            </svg>
+                        </span>
+                        <h4>SUS Score</h4>
+                        <span class="criteria-target">&ge;75</span>
+                    </div>
+                    <div class="criteria-card">
+                        <span class="criteria-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12" y2="18"></line>
+                            </svg>
+                        </span>
+                        <h4>Mobile Completion Rate</h4>
+                        <span class="criteria-target">&ge;90%</span>
+                    </div>
+                    <div class="criteria-card">
+                        <span class="criteria-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+                            </svg>
+                        </span>
+                        <h4>WCAG 2.1 AA Compliance</h4>
+                        <span class="criteria-target">100%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Methodology -->
+            <div class="research-block">
+                <h3 class="subsection-title">2.6 Research Methodology</h3>
+                <div class="methodology-grid">
+                    <div class="method-card">
+                        <span class="method-number">30</span>
+                        <h4>User Interviews</h4>
+                        <p>In-depth interviews with diverse user groups</p>
+                    </div>
+                    <div class="method-card">
+                        <span class="method-number">127</span>
+                        <h4>Heuristic Violations</h4>
+                        <p>Found by 4 UX experts evaluation</p>
+                    </div>
+                    <div class="method-card">
+                        <span class="method-number">2.4M</span>
+                        <h4>Sessions Analyzed</h4>
+                        <p>Analytics review for patterns</p>
+                    </div>
+                    <div class="method-card">
+                        <span class="method-number">98</span>
+                        <h4>Survey Respondents</h4>
+                        <p>NPS Score: -42 (needs improvement)</p>
+                    </div>
+                    <div class="method-card">
+                        <span class="method-number">20</span>
+                        <h4>Usability Tests</h4>
+                        <p>Task-based testing sessions</p>
+                    </div>
+                    <div class="method-card">
+                        <span class="method-number">5</span>
+                        <h4>Systems Compared</h4>
+                        <p>Competitive analysis with tax systems</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PART 3: DESIGN ALTERNATIVES
+         ============================================ -->
+    <section id="alternatives" class="section alternatives-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Part 3</span>
+                <h2 class="section-title">Design Alternatives</h2>
+                <p class="section-description">
+                    We explored three distinct design approaches, each addressing different user needs and
+                    scenarios. User testing informed our final hybrid solution.
+                </p>
+            </div>
+
+            <!-- Alternative 1 -->
+            <div class="alternative-block">
+                <div class="alternative-header">
+                    <span class="alternative-number">Alternative 1</span>
+                    <h3>Mobile-First Progressive Approach</h3>
+                </div>
+                <div class="alternative-content">
+                    <div class="alternative-image">
+                        <img src="assets/design-alt-1-mobile.jpeg" alt="Mobile-First Design Alternative" loading="lazy">
+                        <img src="assets/design-alt-1.1-mobile.jpeg" alt="Mobile-First Design Alternative - Detail" loading="lazy">
+                    </div>
+                    <div class="alternative-details">
+                        <div class="rationale">
+                            <h4>Design Rationale</h4>
+                            <p>Prioritizes mobile users (58% of traffic) with progressive disclosure to reduce cognitive overload. Multi-step wizards break complex forms into manageable chunks.</p>
+                        </div>
+                        <div class="key-features">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li>Card-based interface with 4 primary actions</li>
+                                <li>Bottom navigation for thumb-friendly access</li>
+                                <li>One question per screen (mobile)</li>
+                                <li>Auto-save after each step</li>
+                                <li>Step indicator (Step 3 of 8)</li>
+                            </ul>
+                        </div>
+                        <div class="user-scenario">
+                            <h4>User Scenario - Sarah filing return on mobile:</h4>
+                            <p class="scenario-text">Opens iTax &rarr; Sees 4 main cards &rarr; Taps "File Income Tax" &rarr; Wizard starts &rarr; Question 1: "Were you employed?" &rarr; Yes &rarr; Question 2: "Rental income?" &rarr; Enters data &rarr; System auto-calculates &rarr; Reviews summary &rarr; Submits &rarr; Downloads receipt. <strong>Time: 12 minutes (vs 45 currently)</strong></p>
+                        </div>
+                        <div class="user-feedback">
+                            <h4>User Feedback (25 users tested)</h4>
+                            <div class="feedback-stats">
+                                <span class="feedback-good">92% found navigation easier</span>
+                                <span class="feedback-good">88% completed task first try</span>
+                                <span class="feedback-quote">"Much less overwhelming"</span>
+                                <span class="feedback-bad">16% wanted full form view (power users)</span>
+                            </div>
+                        </div>
+                        <div class="strengths-weaknesses">
+                            <span class="strength">Excellent mobile experience</span>
+                            <span class="strength">High completion rate</span>
+                            <span class="weakness">Extra clicks for power users</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternative 2 -->
+            <div class="alternative-block">
+                <div class="alternative-header">
+                    <span class="alternative-number">Alternative 2</span>
+                    <h3>Dashboard-Centric Intelligence</h3>
+                </div>
+                <div class="alternative-content">
+                    <div class="alternative-image">
+                        <img src="assets/design-alt-2-dashboard.jpeg" alt="Dashboard-Centric Design Alternative" loading="lazy">
+                        <img src="assets/design-alt-2.1-dashboard.jpeg" alt="Dashboard-Centric Design Alternative - Detail" loading="lazy">
+                    </div>
+                    <div class="alternative-details">
+                        <div class="rationale">
+                            <h4>Design Rationale</h4>
+                            <p>Personalized dashboard as central hub with predictive assistance. System proactively guides users based on deadlines and history.</p>
+                        </div>
+                        <div class="key-features">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li>Smart dashboard showing "What you need to do"</li>
+                                <li>Deadline countdown alerts</li>
+                                <li>One-click actions with pre-filled data</li>
+                                <li>AI chatbot for natural language queries</li>
+                                <li>Smart suggestions based on user pattern</li>
+                            </ul>
+                        </div>
+                        <div class="user-scenario">
+                            <h4>User Scenario - David filing VAT:</h4>
+                            <p class="scenario-text">Logs in &rarr; Dashboard shows "VAT Return due in 2 days" &rarr; Clicks "Quick File VAT" &rarr; Form pre-filled from last month &rarr; Updates changed values &rarr; System validates &rarr; Submits &rarr; Auto-generates payment slip &rarr; One-click M-PESA payment. <strong>Time: 8 minutes (vs 60)</strong></p>
+                        </div>
+                        <div class="user-feedback">
+                            <h4>User Feedback (30 users tested)</h4>
+                            <div class="feedback-stats">
+                                <span class="feedback-good">94% loved personalized dashboard</span>
+                                <span class="feedback-good">89% found chatbot helpful</span>
+                                <span class="feedback-bad">22% had privacy concerns about pre-filling</span>
+                            </div>
+                        </div>
+                        <div class="strengths-weaknesses">
+                            <span class="strength">Massive time savings</span>
+                            <span class="strength">Proactive guidance</span>
+                            <span class="weakness">Privacy concerns</span>
+                            <span class="weakness">Complex backend required</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternative 3 -->
+            <div class="alternative-block">
+                <div class="alternative-header">
+                    <span class="alternative-number">Alternative 3</span>
+                    <h3>Modular Progressive Disclosure</h3>
+                </div>
+                <div class="alternative-content">
+                    <div class="alternative-image">
+                        <img src="assets/design-alt-3-progressive.jpeg" alt="Modular Progressive Design Alternative" loading="lazy">
+                        <img src="assets/design-alt-3.1-progressive.jpeg" alt="Modular Progressive Design Alternative - Detail" loading="lazy">
+                    </div>
+                    <div class="alternative-details">
+                        <div class="rationale">
+                            <h4>Design Rationale</h4>
+                            <p>Adaptive interface with Beginner/Standard/Expert modes. Users can switch modes based on expertise level.</p>
+                        </div>
+                        <div class="key-features">
+                            <h4>Key Features</h4>
+                            <ul>
+                                <li>Beginner mode: Simple, guided, tooltips everywhere</li>
+                                <li>Standard mode: Balanced interface</li>
+                                <li>Expert mode: Keyboard shortcuts, batch operations</li>
+                                <li>Customizable dashboard</li>
+                                <li>Progressive disclosure (show essential, hide advanced)</li>
+                            </ul>
+                        </div>
+                        <div class="user-scenario">
+                            <h4>User Scenario - Grace (Expert mode) filing 10 clients:</h4>
+                            <p class="scenario-text">Switches to Expert mode &rarr; Selects first client &rarr; Keyboard shortcut "Ctrl+V" &rarr; All fields visible &rarr; Tab navigation &rarr; Pastes from Excel &rarr; Ctrl+S to submit &rarr; Repeats for 9 more clients &rarr; Batch downloads receipts. <strong>Time: 50 min total (vs 600 min)</strong></p>
+                        </div>
+                        <div class="user-feedback">
+                            <h4>User Feedback (35 users tested)</h4>
+                            <div class="feedback-stats">
+                                <span class="feedback-good">96% of power users loved Expert mode</span>
+                                <span class="feedback-good">91% of beginners preferred Beginner mode</span>
+                                <span class="feedback-quote">"Best of both worlds"</span>
+                            </div>
+                        </div>
+                        <div class="strengths-weaknesses">
+                            <span class="strength">Serves all user levels</span>
+                            <span class="strength">Power users very efficient</span>
+                            <span class="weakness">Complex to develop (3 interfaces)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design Selection -->
+            <div class="design-selection">
+                <h3>Final Design Selection: Hybrid Approach</h3>
+                <p>After extensive testing with 90 users across all three alternatives, we chose a <strong>HYBRID APPROACH</strong> combining the best elements:</p>
+                <div class="hybrid-features">
+                    <div class="hybrid-feature">
+                        <span class="from-alt">From Alt 1</span>
+                        <span class="feature-name">Mobile-first responsive design</span>
+                    </div>
+                    <div class="hybrid-feature">
+                        <span class="from-alt">From Alt 2</span>
+                        <span class="feature-name">Dashboard with quick actions & smart suggestions</span>
+                    </div>
+                    <div class="hybrid-feature">
+                        <span class="from-alt">From Alt 3</span>
+                        <span class="feature-name">Task-based navigation & progressive disclosure</span>
+                    </div>
+                </div>
+                <p class="selection-result">Result: Our Figma design balances mobile usability, clear information hierarchy, and intuitive navigation for all user types.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PART 4: FINAL PROTOTYPE & EVALUATION PLAN
+         ============================================ -->
+    <section id="prototype" class="section prototype-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Part 4</span>
+                <h2 class="section-title">Final Prototype & Evaluation Plan</h2>
+                <p class="section-description">
+                    Our high-fidelity Figma prototype incorporates all learnings from user research and
+                    testing to create a comprehensive iTax redesign.
+                </p>
+            </div>
+
+            <!-- Prototype Preview -->
+            <div class="prototype-showcase">
+                <div class="prototype-comparison">
+                    <div class="comparison-item">
+                        <h4>Current System</h4>
+                        <img src="assets/old-itax-system.png" alt="Current iTax System" loading="lazy">
+                    </div>
+                    <div class="comparison-arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Our Redesign</h4>
+                        <img src="assets/new-itax-design.png" alt="New iTax Redesign" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Figma Embed -->
+            <div class="figma-container">
+                <h3 class="subsection-title">Interactive Prototype</h3>
+                <div class="figma-embed">
+                    <iframe
+                        style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 12px;"
+                        width="100%"
+                        height="600"
+                        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FhyT7zU4dzRVtWYxNJgIqp6%2FHCI%3Fnode-id%3D0-1%26t%3DmIFWeTYeKi5gLGK2-1"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="figma-actions">
+                    <a href="https://www.figma.com/design/hyT7zU4dzRVtWYxNJgIqp6/HCI?node-id=0-1" class="btn btn-primary" target="_blank" rel="noopener">Open Full Prototype in Figma</a>
+                    <a href="https://www.figma.com/design/hyT7zU4dzRVtWYxNJgIqp6/HCI?node-id=0-1&m=dev" class="btn btn-secondary" target="_blank" rel="noopener">View Dev Mode</a>
+                </div>
+            </div>
+
+            <!-- Design Features -->
+            <div class="prototype-features">
+                <h3 class="subsection-title">Key Design Features</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                                <line x1="12" y1="18" x2="12" y2="18"></line>
+                            </svg>
+                        </div>
+                        <h4>Mobile-First Responsive</h4>
+                        <p>Designed for mobile first, scales perfectly to tablet and desktop</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="3" width="7" height="7"></rect>
+                                <rect x="14" y="14" width="7" height="7"></rect>
+                                <rect x="3" y="14" width="7" height="7"></rect>
+                            </svg>
+                        </div>
+                        <h4>Clean Sidebar Navigation</h4>
+                        <p>Home, File Returns, Payments, Tax Compliance - simplified from 40+ to 8 items</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                            </svg>
+                        </div>
+                        <h4>Personalized Dashboard</h4>
+                        <p>Status cards showing deadlines, quick actions, and compliance status</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 11 12 14 22 4"></polyline>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                            </svg>
+                        </div>
+                        <h4>Step-by-Step Wizards</h4>
+                        <p>Complex tasks broken into manageable steps with progress indicators</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
+                        <h4>Inline Validation</h4>
+                        <p>Real-time feedback and helpful error messages as users type</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+                            </svg>
+                        </div>
+                        <h4>WCAG 2.1 AA Compliant</h4>
+                        <p>Full accessibility: screen reader support, keyboard nav, dark mode</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Scenarios -->
+            <div class="user-scenarios">
+                <h3 class="subsection-title">User Scenarios with New Design</h3>
+                <div class="scenarios-grid">
+                    <div class="scenario-card">
+                        <div class="scenario-persona">
+                            <span class="persona-avatar-small">SN</span>
+                            <span>Sarah - Mobile User</span>
+                        </div>
+                        <h4>Files income tax on mobile in 12 min</h4>
+                        <p>Opens app &rarr; Dashboard shows "File Income Tax" &rarr; Step-by-step wizard &rarr; Auto-calculates &rarr; Submits &rarr; Receipt downloaded</p>
+                        <span class="time-saved">Saved 33 minutes</span>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-persona">
+                            <span class="persona-avatar-small">DO</span>
+                            <span>David - Business Owner</span>
+                        </div>
+                        <h4>Files VAT return in 8 min</h4>
+                        <p>Dashboard alert &rarr; Pre-filled form &rarr; Updates values &rarr; Validates &rarr; M-PESA payment &rarr; Done</p>
+                        <span class="time-saved">Saved 52 minutes</span>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-persona">
+                            <span class="persona-avatar-small">JK</span>
+                            <span>John - First Timer</span>
+                        </div>
+                        <h4>Registers for PIN successfully on first try</h4>
+                        <p>Guided wizard &rarr; Tooltips explain each field &rarr; Real-time validation &rarr; Completed without external help</p>
+                        <span class="time-saved">Saved 28 minutes + frustration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Evaluation Plan -->
+            <div class="evaluation-plan">
+                <h3 class="subsection-title">Evaluation Plan (3 Exercises)</h3>
+                <div class="exercises-grid">
+                    <div class="exercise-card">
+                        <span class="exercise-number">Exercise 1</span>
+                        <h4>Moderated Usability Testing</h4>
+                        <div class="exercise-details">
+                            <p><strong>Method:</strong> 20 participants complete 5 tasks</p>
+                            <p><strong>Metrics:</strong> Completion rate, time, errors, SUS score</p>
+                            <div class="targets">
+                                <span class="target">90% completion</span>
+                                <span class="target">&lt;15 min per task</span>
+                                <span class="target">&lt;10% errors</span>
+                                <span class="target">SUS &ge;75</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-number">Exercise 2</span>
+                        <h4>Heuristic Evaluation</h4>
+                        <div class="exercise-details">
+                            <p><strong>Method:</strong> 5 UX experts review against Nielsen's 10 heuristics</p>
+                            <p><strong>Focus:</strong> Severity ratings, WCAG compliance</p>
+                            <div class="targets">
+                                <span class="target">Zero severity 4 issues</span>
+                                <span class="target">&lt;5 severity 3 issues</span>
+                                <span class="target">100% WCAG AA</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exercise-card">
+                        <span class="exercise-number">Exercise 3</span>
+                        <h4>A/B Performance Comparison</h4>
+                        <div class="exercise-details">
+                            <p><strong>Method:</strong> 25 users test both old and new systems</p>
+                            <p><strong>Metrics:</strong> Time comparison, preference survey</p>
+                            <div class="targets">
+                                <span class="target">50-70% faster</span>
+                                <span class="target">80% prefer new</span>
+                                <span class="target">Statistically significant</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Self Assessment -->
+            <div class="self-assessment">
+                <h3 class="subsection-title">Self-Assessment</h3>
+                <div class="assessment-grid">
+                    <div class="assessment-card success">
+                        <h4>What Worked Well</h4>
+                        <ul>
+                            <li>Mobile-first design resonated with users</li>
+                            <li>Progressive disclosure reduced overwhelm</li>
+                            <li>Error prevention through inline validation</li>
+                            <li>Task-based navigation was intuitive</li>
+                        </ul>
+                    </div>
+                    <div class="assessment-card improve">
+                        <h4>Needs Improvement</h4>
+                        <ul>
+                            <li>Session timeout too short (15 min)</li>
+                            <li>Need undo capability after submission</li>
+                            <li>Date picker too small on mobile</li>
+                        </ul>
+                    </div>
+                    <div class="assessment-card future">
+                        <h4>Future Improvements</h4>
+                        <ul>
+                            <li>AI chatbot for instant assistance</li>
+                            <li>Offline mode for form drafts</li>
+                            <li>Multi-language support (Swahili)</li>
+                            <li>Keyboard shortcuts for power users</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PART 5: EVALUATION RESULTS
+         ============================================ -->
+    <section id="evaluation" class="section evaluation-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Part 5</span>
+                <h2 class="section-title">Evaluation Results</h2>
+                <p class="section-description">
+                    Comprehensive testing with 75+ users demonstrates significant improvements across all
+                    key metrics. Our redesign outperforms the current system in every measured category.
+                </p>
+            </div>
+
+            <!-- Overall Success -->
+            <div class="success-banner">
+                <div class="success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                <div class="success-text">
+                    <h3>SUCCESS - All Targets Met</h3>
+                    <p>Redesign significantly outperforms current system across all metrics with statistical significance (p &lt; 0.001)</p>
+                </div>
+            </div>
+
+            <!-- Exercise 1 Results -->
+            <div class="results-block">
+                <h3 class="subsection-title">Exercise 1 Results: Usability Testing (20 participants)</h3>
+                <div class="results-comparison">
+                    <div class="comparison-chart">
+                        <div class="chart-item">
+                            <span class="chart-label">Task Completion</span>
+                            <div class="chart-bars">
+                                <div class="bar-old" style="width: 67%">
+                                    <span>Old: 67%</span>
+                                </div>
+                                <div class="bar-new" style="width: 96%">
+                                    <span>New: 96%</span>
+                                </div>
+                            </div>
+                            <span class="improvement-badge">+29%</span>
+                        </div>
+                        <div class="chart-item">
+                            <span class="chart-label">Average Time</span>
+                            <div class="chart-bars">
+                                <div class="bar-old" style="width: 100%">
+                                    <span>Old: 44 min</span>
+                                </div>
+                                <div class="bar-new" style="width: 31%">
+                                    <span>New: 13.6 min</span>
+                                </div>
+                            </div>
+                            <span class="improvement-badge">66% faster</span>
+                        </div>
+                        <div class="chart-item">
+                            <span class="chart-label">Error Rate</span>
+                            <div class="chart-bars">
+                                <div class="bar-old" style="width: 35%">
+                                    <span>Old: 35%</span>
+                                </div>
+                                <div class="bar-new" style="width: 4%">
+                                    <span>New: 4%</span>
+                                </div>
+                            </div>
+                            <span class="improvement-badge">89% reduction</span>
+                        </div>
+                        <div class="chart-item">
+                            <span class="chart-label">SUS Score</span>
+                            <div class="chart-bars">
+                                <div class="bar-old" style="width: 42%">
+                                    <span>Old: 42</span>
+                                </div>
+                                <div class="bar-new" style="width: 82.5%">
+                                    <span>New: 82.5</span>
+                                </div>
+                            </div>
+                            <span class="improvement-badge">"Excellent"</span>
+                        </div>
+                    </div>
+                    <div class="user-quotes">
+                        <h4>User Feedback</h4>
+                        <blockquote>"I can't believe how easy that was!"</blockquote>
+                        <blockquote>"Finally! I could do this on my phone."</blockquote>
+                        <div class="satisfaction-score">
+                            <span class="score-value">4.6/5</span>
+                            <span class="score-label">User Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 2 Results -->
+            <div class="results-block">
+                <h3 class="subsection-title">Exercise 2 Results: Heuristic Evaluation (5 UX Experts)</h3>
+                <div class="heuristic-results">
+                    <div class="issues-comparison">
+                        <div class="issues-old">
+                            <span class="issues-number">127</span>
+                            <span class="issues-label">Issues in Old System</span>
+                        </div>
+                        <div class="issues-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </div>
+                        <div class="issues-new">
+                            <span class="issues-number">47</span>
+                            <span class="issues-label">Issues in New System</span>
+                        </div>
+                    </div>
+                    <div class="severity-breakdown">
+                        <div class="severity-item severity-4">
+                            <span class="severity-label">Severity 4 (Catastrophic)</span>
+                            <span class="severity-count">0</span>
+                            <span class="severity-status pass">PASS</span>
+                        </div>
+                        <div class="severity-item severity-3">
+                            <span class="severity-label">Severity 3 (Major)</span>
+                            <span class="severity-count">8</span>
+                            <span class="severity-status warning">Needs fixing</span>
+                        </div>
+                        <div class="severity-item wcag">
+                            <span class="severity-label">WCAG 2.1 AA Compliance</span>
+                            <span class="severity-count">100%</span>
+                            <span class="severity-status pass">PASS</span>
+                        </div>
+                    </div>
+                    <div class="issues-to-fix">
+                        <h4>8 Major Issues to Fix Before Launch:</h4>
+                        <ol>
+                            <li>Session timeout too short (15 min &rarr; extend to 30 min)</li>
+                            <li>No undo after submission</li>
+                            <li>VAT refund calculation edge case</li>
+                            <li>Payment confirmation email delayed</li>
+                            <li>Mobile date picker too small</li>
+                            <li>Inconsistent button placement</li>
+                            <li>No keyboard shortcuts</li>
+                            <li>Unclear payment failure recovery</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exercise 3 Results -->
+            <div class="results-block">
+                <h3 class="subsection-title">Exercise 3 Results: A/B Comparison (25 participants)</h3>
+                <div class="ab-results">
+                    <div class="ab-metrics">
+                        <div class="ab-metric">
+                            <span class="ab-value">66%</span>
+                            <span class="ab-label">Average Time Savings</span>
+                            <span class="ab-status pass">Target: 50-70%</span>
+                        </div>
+                        <div class="ab-metric">
+                            <span class="ab-value">+21%</span>
+                            <span class="ab-label">Completion Rate Improvement</span>
+                            <span class="ab-status pass">Significant</span>
+                        </div>
+                        <div class="ab-metric">
+                            <span class="ab-value">88%</span>
+                            <span class="ab-label">Error Reduction</span>
+                            <span class="ab-status pass">Exceeded Target</span>
+                        </div>
+                        <div class="ab-metric">
+                            <span class="ab-value">96%</span>
+                            <span class="ab-label">Prefer New Design</span>
+                            <span class="ab-status pass">Target: 80%</span>
+                        </div>
+                    </div>
+                    <p class="statistical-note">All improvements statistically significant (p &lt; 0.001)</p>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div class="results-summary">
+                <h3 class="subsection-title">Overall Assessment</h3>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4>Targets Met</h4>
+                        <div class="targets-list">
+                            <div class="target-item met">Task completion &ge;90% (Achieved: 96%)</div>
+                            <div class="target-item met">Time &lt;15 min (Achieved: 13.6 min)</div>
+                            <div class="target-item met">Error rate &lt;10% (Achieved: 4%)</div>
+                            <div class="target-item met">SUS &ge;75 (Achieved: 82.5)</div>
+                            <div class="target-item met">Mobile completion &ge;90% (Achieved: 94%)</div>
+                            <div class="target-item met">WCAG compliance 100% (Achieved: 100%)</div>
+                        </div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Recommended Next Steps</h4>
+                        <ul>
+                            <li>Fix 8 major issues identified before launch</li>
+                            <li>Add keyboard shortcuts for power users</li>
+                            <li>Implement offline mode for form drafts</li>
+                            <li>Add multi-language support (Swahili)</li>
+                            <li>Conduct pilot testing with 1000 real users</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PART 6: PRESENTATION
+         ============================================ -->
+    <section id="presentation" class="section presentation-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Part 6</span>
+                <h2 class="section-title">Presentation Materials</h2>
+                <p class="section-description">
+                    Our 20-30 minute presentation covers the complete project journey from research to
+                    results, with a live prototype demonstration.
+                </p>
+            </div>
+
+            <!-- Presentation Structure -->
+            <div class="presentation-structure">
+                <h3 class="subsection-title">Presentation Structure (13 Slides)</h3>
+                <div class="slides-grid">
+                    <div class="slide-card">
+                        <span class="slide-number">1</span>
+                        <h4>Title Slide</h4>
+                        <p>Project name, team intro, course info</p>
+                    </div>
+                    <div class="slide-card">
+                        <span class="slide-number">2</span>
+                        <h4>Problem Statement</h4>
+                        <p>iTax issues affecting 7M+ users</p>
+                    </div>
+                    <div class="slide-card">
+                        <span class="slide-number">3</span>
+                        <h4>Research Methodology</h4>
+                        <p>148 users, interviews, surveys</p>
+                    </div>
+                    <div class="slide-card">
+                        <span class="slide-number">4</span>
+                        <h4>User Personas</h4>
+                        <p>5 key personas and their pain points</p>
+                    </div>
+                    <div class="slide-card">
+                        <span class="slide-number">5</span>
+                        <h4>6 Critical Issues</h4>
+                        <p>Problems identified through research</p>
+                    </div>
+                    <div class="slide-card">
+                        <span class="slide-number">6</span>
+                        <h4>Design Alternative 1</h4>
+                        <p>Mobile-First Progressive approach</p>
+                    </div>
+                    <div class="slide-card">
+                        <span class="slide-number">7</span>
+                        <h4>Design Alternative 2</h4>
+                        <p>Dashboard-Centric Intelligence</p>
+                    </div>
+                    <div class="slide-card">
+                        <span class="slide-number">8</span>
+                        <h4>Design Alternative 3</h4>
+                        <p>Modular Progressive Disclosure</p>
+                    </div>
+                    <div class="slide-card">
+                        <span class="slide-number">9</span>
+                        <h4>Final Design Decision</h4>
+                        <p>Hybrid approach rationale</p>
+                    </div>
+                    <div class="slide-card highlight">
+                        <span class="slide-number">10</span>
+                        <h4>Live Demo</h4>
+                        <p>Interactive Figma prototype walkthrough</p>
+                    </div>
+                    <div class="slide-card">
+                        <span class="slide-number">11</span>
+                        <h4>Evaluation Results</h4>
+                        <p>Usability testing, heuristic, A/B</p>
+                    </div>
+                    <div class="slide-card">
+                        <span class="slide-number">12</span>
+                        <h4>Key Metrics</h4>
+                        <p>66% faster, 96% completion, SUS 82.5</p>
+                    </div>
+                    <div class="slide-card">
+                        <span class="slide-number">13</span>
+                        <h4>Conclusions & Q&A</h4>
+                        <p>Summary, learnings, questions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Talking Points -->
+            <div class="talking-points">
+                <h3 class="subsection-title">Key Talking Points</h3>
+                <div class="points-grid">
+                    <div class="point-card">
+                        <h4>Opening Hook</h4>
+                        <p>"Imagine spending 45 minutes trying to file your taxes, only to get 'Error 500' with no explanation. This is the daily reality for 7 million Kenyan taxpayers."</p>
+                    </div>
+                    <div class="point-card">
+                        <h4>Impact Statement</h4>
+                        <p>"Our redesign reduced task completion time by 66% and errors by 89%, transforming a frustrating experience into an intuitive one."</p>
+                    </div>
+                    <div class="point-card">
+                        <h4>HCI Principles Applied</h4>
+                        <p>Nielsen's heuristics, Shneiderman's 8 Golden Rules, WCAG 2.1 guidelines, progressive disclosure, mobile-first design</p>
+                    </div>
+                    <div class="point-card">
+                        <h4>Closing</h4>
+                        <p>"User-centered design isn't just about making things pretty - it's about removing barriers and empowering users to accomplish their goals efficiently."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Script -->
+            <div class="demo-script">
+                <h3 class="subsection-title">Live Demo Flow</h3>
+                <ol class="demo-steps">
+                    <li>
+                        <strong>Dashboard Overview</strong> - Show personalized dashboard with deadline alerts and quick actions
+                    </li>
+                    <li>
+                        <strong>Mobile Responsiveness</strong> - Demonstrate same interface on mobile viewport
+                    </li>
+                    <li>
+                        <strong>File Income Tax</strong> - Walk through step-by-step wizard with auto-save
+                    </li>
+                    <li>
+                        <strong>Error Prevention</strong> - Show inline validation and helpful error messages
+                    </li>
+                    <li>
+                        <strong>Accessibility Features</strong> - Toggle dark mode, show keyboard navigation
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         DESIGN SYSTEM
+         ============================================ -->
+    <section class="section design-system-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Design System</span>
+                <h2 class="section-title">Visual Design Language</h2>
+            </div>
+            <div class="design-system-grid">
+                <!-- Colors -->
+                <div class="ds-card">
+                    <h3>Color Palette</h3>
+                    <div class="color-grid">
+                        <div class="color-item">
+                            <div class="color-swatch" style="background-color: #DC2626;"></div>
+                            <span class="color-name">KRA Red</span>
+                            <span class="color-code">#DC2626</span>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-swatch" style="background-color: #2563EB;"></div>
+                            <span class="color-name">Primary Blue</span>
+                            <span class="color-code">#2563EB</span>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-swatch" style="background-color: #16A34A;"></div>
+                            <span class="color-name">Success Green</span>
+                            <span class="color-code">#16A34A</span>
+                        </div>
+                        <div class="color-item">
+                            <div class="color-swatch" style="background-color: #1F2937;"></div>
+                            <span class="color-name">Text Dark</span>
+                            <span class="color-code">#1F2937</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Typography -->
+                <div class="ds-card">
+                    <h3>Typography</h3>
+                    <div class="typography-samples">
+                        <div class="type-sample" style="font-size: 32px; font-weight: 700;">Heading 1 - Inter Bold</div>
+                        <div class="type-sample" style="font-size: 24px; font-weight: 600;">Heading 2 - Inter SemiBold</div>
+                        <div class="type-sample" style="font-size: 18px; font-weight: 500;">Heading 3 - Inter Medium</div>
+                        <div class="type-sample" style="font-size: 16px; font-weight: 400;">Body Text - Inter Regular</div>
+                        <p class="type-info">Font Family: Inter | Weights: 300, 400, 500, 600, 700</p>
+                    </div>
+                </div>
+
+                <!-- Components -->
+                <div class="ds-card">
+                    <h3>UI Components</h3>
+                    <div class="component-showcase">
+                        <button class="showcase-btn primary">Primary Action</button>
+                        <button class="showcase-btn secondary">Secondary Action</button>
+                        <div class="showcase-input">
+                            <input type="text" placeholder="Input Field">
+                        </div>
+                        <div class="showcase-card">Card Component</div>
+                    </div>
+                </div>
+
+                <!-- Spacing -->
+                <div class="ds-card">
+                    <h3>Spacing Scale</h3>
+                    <div class="spacing-samples">
+                        <div class="spacing-item">
+                            <div class="spacing-bar" style="width: 4px;"></div>
+                            <span>4px (xs)</span>
+                        </div>
+                        <div class="spacing-item">
+                            <div class="spacing-bar" style="width: 8px;"></div>
+                            <span>8px (sm)</span>
+                        </div>
+                        <div class="spacing-item">
+                            <div class="spacing-bar" style="width: 16px;"></div>
+                            <span>16px (md)</span>
+                        </div>
+                        <div class="spacing-item">
+                            <div class="spacing-bar" style="width: 24px;"></div>
+                            <span>24px (lg)</span>
+                        </div>
+                        <div class="spacing-item">
+                            <div class="spacing-bar" style="width: 32px;"></div>
+                            <span>32px (xl)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TEAM SECTION
+         ============================================ -->
+    <section id="team" class="section team-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Team</span>
+                <h2 class="section-title">Redline UX Collective</h2>
+                <p class="section-description">
+                    A passionate team of HCI specialists, designers, and developers working together
+                    to create a better tax filing experience for millions of Kenyan taxpayers.
+                </p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">JK</div>
+                    <h3 class="team-name">Jason Kabugi Kiragu</h3>
+                    <p class="team-id">SCT221-0581/2022</p>
+                    <p class="team-role">Project Lead & UX Research</p>
+                    <p class="team-description">Leading overall project direction, user research coordination, and HCI analysis.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">JO</div>
+                    <h3 class="team-name">Jeff Mark Owuor</h3>
+                    <p class="team-id">SCT221-0440/2022</p>
+                    <p class="team-role">Visual Design Lead</p>
+                    <p class="team-description">Creating design systems, UI components, and visual aesthetics in Figma.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">SM</div>
+                    <h3 class="team-name">Sylvia Munjiru</h3>
+                    <p class="team-id">SCT221-0263/2021</p>
+                    <p class="team-role">Interaction Design</p>
+                    <p class="team-description">Designing user flows, interactions, and prototype animations.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">JM</div>
+                    <h3 class="team-name">Jackline Muhoro</h3>
+                    <p class="team-id">SCT221-0258/2022</p>
+                    <p class="team-role">Accessibility Specialist</p>
+                    <p class="team-description">Ensuring WCAG 2.1 compliance and universal design principles.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">GK</div>
+                    <h3 class="team-name">Gideon Kipamet Kaiyian</h3>
+                    <p class="team-id">SCT221-0255/2023</p>
+                    <p class="team-role">Mobile UX Designer</p>
+                    <p class="team-description">Optimizing mobile experiences and responsive design patterns.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">MA</div>
+                    <h3 class="team-name">Michael Awuondo</h3>
+                    <p class="team-id">SCT221-0501/2022</p>
+                    <p class="team-role">Documentation & Testing</p>
+                    <p class="team-description">Managing documentation, usability testing, and evaluation analysis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONCLUSION
+         ============================================ -->
+    <section class="section conclusion-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Conclusion</span>
+                <h2 class="section-title">Transforming Tax Filing in Kenya</h2>
+            </div>
+            <div class="conclusion-content">
+                <div class="conclusion-text">
+                    <h3>Impact Summary</h3>
+                    <p>
+                        Our redesign of the KRA iTax system demonstrates the powerful impact of applying
+                        Human-Computer Interaction principles to real-world problems. Through thorough
+                        user research with 148 participants and iterative design testing, we created a
+                        solution that dramatically improves the tax filing experience.
+                    </p>
+                    <div class="impact-metrics">
+                        <div class="impact-item">
+                            <span class="impact-number">66%</span>
+                            <span class="impact-text">Faster Task Completion</span>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-number">89%</span>
+                            <span class="impact-text">Error Reduction</span>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-number">96%</span>
+                            <span class="impact-text">User Preference</span>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-number">82.5</span>
+                            <span class="impact-text">SUS Score (Excellent)</span>
+                        </div>
+                    </div>
+                    <h3>HCI Principles Applied</h3>
+                    <ul class="principles-list">
+                        <li><strong>Nielsen's 10 Usability Heuristics</strong> - Guided our evaluation</li>
+                        <li><strong>Shneiderman's 8 Golden Rules</strong> - Informed interaction design</li>
+                        <li><strong>Progressive Disclosure</strong> - Reduced cognitive overload</li>
+                        <li><strong>Mobile-First Design</strong> - Prioritized majority user experience</li>
+                        <li><strong>WCAG 2.1 Guidelines</strong> - Ensured accessibility for all</li>
+                    </ul>
+                </div>
+                <div class="conclusion-stats">
+                    <div class="final-stat">
+                        <div class="stat-circle">7M+</div>
+                        <p>Taxpayers Impacted</p>
+                    </div>
+                    <div class="final-stat">
+                        <div class="stat-circle">6</div>
+                        <p>Critical Issues Solved</p>
+                    </div>
+                    <div class="final-stat">
+                        <div class="stat-circle">148</div>
+                        <p>Users Researched</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Project Navigation -->
+    <section class="next-project-section">
+        <div class="container">
+            <div class="next-project-nav">
+                <a href="index.html#projects" class="nav-prev">
+                    <span class="nav-label">Back to</span>
+                    <span class="nav-title">All Projects</span>
+                </a>
+                <a href="project3.html" class="nav-next">
+                    <span class="nav-label">Next Project</span>
+                    <span class="nav-title">County E-Services Platform</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer project-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Redline UX Collective</h3>
+                    <p>A Human-Computer Interaction project focused on improving user experience through evidence-based design.</p>
+                    <p class="footer-course">BIT 2305 Human Computer Interface<br>January 2025</p>
+                    <a href="index.html" class="footer-home-link">Visit Company Portfolio</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Project Team</h4>
+                    <ul class="footer-links">
+                        <li>Jason Kabugi Kiragu (Lead)</li>
+                        <li>Jeff Mark Owuor (Visual Design)</li>
+                        <li>Sylvia Munjiru (Interaction)</li>
+                        <li>Jackline Muhoro (Accessibility)</li>
+                        <li>Gideon Kipamet Kaiyian (Mobile)</li>
+                        <li>Michael Awuondo (Documentation)</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Project Parts</h4>
+                    <ul class="footer-links">
+                        <li><a href="#overview">Part 1: Overview</a></li>
+                        <li><a href="#research">Part 2: Research</a></li>
+                        <li><a href="#alternatives">Part 3: Alternatives</a></li>
+                        <li><a href="#prototype">Part 4: Prototype</a></li>
+                        <li><a href="#evaluation">Part 5: Results</a></li>
+                        <li><a href="#presentation">Part 6: Presentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.figma.com/design/hyT7zU4dzRVtWYxNJgIqp6/HCI" target="_blank">Figma Prototype</a></li>
+                        <li><a href="index.html">Company Portfolio</a></li>
+                        <li><a href="index.html#projects">More Projects</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Redline UX Collective. KRA iTax Redesign Project.</p>
+                <p class="footer-disclaimer">This is an educational project for Human-Computer Interaction coursework. Not affiliated with Kenya Revenue Authority.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
