@@ -414,7 +414,7 @@ body {
 }
 
 .subsection-title:first-child {
-    margin-top: 0;
+    margin-top: 5;
 }
 
 /* ===================================
@@ -3152,7 +3152,7 @@ body {
 
 /* Project thumbnail background images */
 .placeholder-thumbnail.gradient-1 {
-    background: linear-gradient(135deg, rgba(220, 38, 38, 0.7), rgba(153, 27, 27, 0.75)),
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0), rgba(153, 27, 27, 0)),
         url('assets/Background.png') center / cover no-repeat;
 }
 
