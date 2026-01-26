@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KRA iTax System - Dashboard">
+  <title>Dashboard | KRA iTax System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="system-styles.css">
+  <style>
+    /* ============================================
+       DASHBOARD V2 - Matching Figma Design Exactly
+       ============================================ */
+
+    /* Override sidebar width to 180px */
+    .dashboard-v2 .sidebar {
+      width: 180px;
+    }
+
+    .dashboard-v2 .sidebar-header {
+      padding: 16px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .dashboard-v2 .sidebar-logo-img {
+      width: 100%;
+      max-width: 140px;
+      display: block;
+    }
+
+    .dashboard-v2 .sidebar-tagline {
+      font-size: 9px;
+      opacity: 0.75;
+      margin-top: 4px;
+      font-style: italic;
+      letter-spacing: 0.2px;
+    }
+
+    .dashboard-v2 .sidebar-nav {
+      padding: 6px 0;
+    }
+
+    .dashboard-v2 .nav-item {
+      padding: 10px 16px;
+      font-size: 13px;
+      gap: 10px;
+      border-radius: 0;
+      margin-bottom: 0;
+      min-height: 40px;
+    }
+
+    .dashboard-v2 .nav-item.active {
+      background: rgba(255, 255, 255, 0.95);
+      color: #DC2626;
+      font-weight: 600;
+      border-radius: 8px;
+      margin: 2px 8px;
+      padding: 10px 12px;
+    }
+
+    .dashboard-v2 .nav-item:hover:not(.active) {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .dashboard-v2 .nav-item-icon {
+      font-size: 15px;
+      width: 18px;
+      text-align: center;
+    }
+
+    .dashboard-v2 .nav-section-label {
+      padding: 14px 16px 6px;
+      font-size: 10px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      opacity: 0.6;
+      font-weight: 600;
+    }
+
+    .dashboard-v2 .nav-item .nav-arrow {
+      margin-left: auto;
+      font-size: 10px;
+      opacity: 0.7;
+    }
+
+    .dashboard-v2 .sidebar-footer {
+      padding: 8px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .dashboard-v2 .sidebar-footer .nav-item {
+      padding: 10px 16px;
+    }
+
+    /* Top Navigation Bar */
+    .dashboard-v2 .main-content {
+      margin-left: 180px;
+    }
+
+    .dashboard-v2 .topbar {
+      padding: 0 20px;
+      height: 56px;
+      gap: 12px;
+    }
+
+    .dashboard-v2 .topbar-left {
+      gap: 12px;
+    }
+
+    .dashboard-v2 .account-type-select {
+      padding: 7px 14px;
+      border: 1px solid #E5E7EB;
+      border-radius: 6px;
+      background: #F3F4F6;
+      font-size: 13px;
+      font-family: inherit;
+      color: var(--dark-gray);
+      cursor: pointer;
+      min-height: 36px;
+      appearance: auto;
+    }
+
+    .dashboard-v2 .topbar-right {
+      gap: 10px;
+    }
+
+    .dashboard-v2 .topbar-btn-secondary {
+      padding: 7px 14px;
+      background: #F3F4F6;
+      border: 1px solid #E5E7EB;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      color: var(--dark-gray);
+      font-family: inherit;
+      min-height: 36px;
+    }
+
+    .dashboard-v2 .topbar-btn-secondary:hover {
+      background: #E5E7EB;
+    }
+
+    .dashboard-v2 .topbar-btn-orange {
+      padding: 7px 16px;
+      background: #F59E0B;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      min-height: 36px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .dashboard-v2 .topbar-btn-orange:hover {
+      background: #D97706;
+      text-decoration: none;
+    }
+
+    .dashboard-v2 .notif-icon {
+      position: relative;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      padding: 6px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dashboard-v2 .notif-icon .notif-badge {
+      position: absolute;
+      top: 0;
+      right: -2px;
+      background: #DC2626;
+      color: white;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 10px;
+      line-height: 1.3;
+    }
+
+    .dashboard-v2 .user-profile-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: background 0.2s;
+      position: relative;
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+
+    .dashboard-v2 .user-profile-btn:hover {
+      background: #F3F4F6;
+    }
+
+    .dashboard-v2 .user-profile-btn .user-avatar {
+      width: 32px;
+      height: 32px;
+      background: #F59E0B;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .dashboard-v2 .user-profile-btn .user-name-text {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--dark-gray);
+    }
+
+    .dashboard-v2 .user-profile-btn .user-arrow {
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    /* Main Content Area */
+    .dashboard-v2 .dash-main {
+      padding: 28px 30px;
+      background: #F9FAFB;
+      min-height: calc(100vh - 56px);
+    }
+
+    .dashboard-v2 .page-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #1F2937;
+      margin-bottom: 24px;
+    }
+
+    .dashboard-v2 .dash-grid {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Profile Card */
+    .dashboard-v2 .profile-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      padding: 28px 24px;
+      position: sticky;
+      top: 80px;
+    }
+
+    .dashboard-v2 .profile-top {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #E5E7EB;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-v2 .profile-avatar-lg {
+      width: 72px;
+      height: 72px;
+      background: #F59E0B;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 700;
+      margin: 0 auto 12px;
+    }
+
+    .dashboard-v2 .profile-top h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1F2937;
+      margin-bottom: 6px;
+    }
+
+    .dashboard-v2 .profile-pin-label {
+      font-size: 12px;
+      color: #6B7280;
+    }
+
+    .dashboard-v2 .profile-pin-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1F2937;
+      margin-top: 2px;
+    }
+
+    .dashboard-v2 .profile-badge {
+      display: inline-block;
+      background: #DCFCE7;
+      color: #166534;
+      padding: 3px 12px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .dashboard-v2 .profile-section {
+      margin-bottom: 18px;
+    }
+
+    .dashboard-v2 .profile-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .dashboard-v2 .profile-section h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1F2937;
+      margin-bottom: 10px;
+    }
+
+    .dashboard-v2 .tax-obligation-tag {
+      display: inline-block;
+      color: #2563EB;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .dashboard-v2 .profile-detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 7px 0;
+      border-bottom: 1px solid #F3F4F6;
+      font-size: 13px;
+    }
+
+    .dashboard-v2 .profile-detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .dashboard-v2 .profile-detail-row .detail-label {
+      color: #6B7280;
+      font-weight: 500;
+    }
+
+    .dashboard-v2 .profile-detail-row .detail-value {
+      color: #1F2937;
+      font-weight: 500;
+    }
+
+    /* Action Cards */
+    .dashboard-v2 .action-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .dashboard-v2 .action-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      transition: box-shadow 0.2s;
+    }
+
+    .dashboard-v2 .action-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .dashboard-v2 .action-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .dashboard-v2 .action-card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .dashboard-v2 .action-card-icon.icon-blue {
+      background: #DBEAFE;
+      color: #2563EB;
+    }
+
+    .dashboard-v2 .action-card-icon.icon-orange {
+      background: #FEF3C7;
+      color: #D97706;
+    }
+
+    .dashboard-v2 .action-card-icon.icon-green {
+      background: #DCFCE7;
+      color: #16A34A;
+    }
+
+    .dashboard-v2 .action-card-icon.icon-red {
+      background: #FEE2E2;
+      color: #DC2626;
+    }
+
+    .dashboard-v2 .action-card-icon.icon-purple {
+      background: #F3E8FF;
+      color: #7C3AED;
+    }
+
+    .dashboard-v2 .action-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1F2937;
+    }
+
+    .dashboard-v2 .action-card p {
+      font-size: 13px;
+      color: #6B7280;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .dashboard-v2 .action-card .btn-card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      background: #1F2937;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+
+    .dashboard-v2 .action-card .btn-card-action:hover {
+      background: #374151;
+    }
+
+    .dashboard-v2 .action-card .btn-card-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      background: white;
+      color: #1F2937;
+      border: 1px solid #E5E7EB;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+
+    .dashboard-v2 .action-card .btn-card-outline:hover {
+      background: #F3F4F6;
+    }
+
+    /* KRA PIN highlight card */
+    .dashboard-v2 .kra-pin-card {
+      background: #FEF3C7;
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+
+    .dashboard-v2 .kra-pin-card:hover {
+      box-shadow: none;
+    }
+
+    .dashboard-v2 .kra-pin-card .action-card-header {
+      margin-bottom: 6px;
+    }
+
+    .dashboard-v2 .kra-pin-card h3 {
+      font-size: 15px;
+    }
+
+    .dashboard-v2 .kra-pin-card p {
+      font-size: 13px;
+      color: #92400E;
+      margin-bottom: 0;
+    }
+
+    /* Tax Liability */
+    .dashboard-v2 .liability-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .dashboard-v2 .liability-amount-text {
+      font-size: 13px;
+      color: #6B7280;
+    }
+
+    .dashboard-v2 .liability-amount-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1F2937;
+      font-family: monospace, 'Inter', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    .dashboard-v2 .liability-amount-value.blurred {
+      filter: blur(6px);
+      user-select: none;
+    }
+
+    .dashboard-v2 .btn-eye {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      color: #6B7280;
+      padding: 4px;
+    }
+
+    /* Organisations card */
+    .dashboard-v2 .org-card {
+      background: #FEF3C7;
+      text-align: center;
+      padding: 28px 24px;
+    }
+
+    .dashboard-v2 .org-card .org-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .dashboard-v2 .org-card h3 {
+      margin-bottom: 6px;
+    }
+
+    .dashboard-v2 .org-card p {
+      margin-bottom: 0;
+    }
+
+    /* Status dots (top right corner of card) */
+    .dashboard-v2 .status-dots {
+      display: flex;
+      gap: 4px;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+    }
+
+    .dashboard-v2 .status-dot-green {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #16A34A;
+    }
+
+    .dashboard-v2 .status-dot-orange {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #F59E0B;
+    }
+
+    /* Profile dropdown */
+    .dashboard-v2 .user-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      margin-top: 6px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      border: 1px solid #E5E7EB;
+      width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: all 0.2s;
+      z-index: 200;
+    }
+
+    .dashboard-v2 .user-dropdown-menu.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dashboard-v2 .user-dropdown-menu a,
+    .dashboard-v2 .user-dropdown-menu button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: #1F2937;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      text-align: left;
+      transition: background 0.15s;
+    }
+
+    .dashboard-v2 .user-dropdown-menu a:hover,
+    .dashboard-v2 .user-dropdown-menu button:hover {
+      background: #F3F4F6;
+    }
+
+    .dashboard-v2 .user-dropdown-menu .dropdown-divider {
+      height: 1px;
+      background: #E5E7EB;
+      margin: 4px 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .dashboard-v2 .sidebar {
+        transform: translateX(-100%);
+        z-index: 2000;
+        width: 220px;
+      }
+
+      .dashboard-v2 .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .dashboard-v2 .main-content {
+        margin-left: 0;
+      }
+
+      .dashboard-v2 .topbar {
+        left: 0;
+        padding: 0 12px;
+      }
+
+      .dashboard-v2 .hamburger-btn {
+        display: flex;
+      }
+
+      .dashboard-v2 .account-type-select {
+        display: none;
+      }
+
+      .dashboard-v2 .topbar-btn-secondary {
+        display: none;
+      }
+
+      .dashboard-v2 .user-name-text {
+        display: none;
+      }
+
+      .dashboard-v2 .dash-main {
+        padding: 20px 16px;
+      }
+
+      .dashboard-v2 .dash-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-v2 .profile-card {
+        position: static;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .dashboard-v2 .dash-grid {
+        grid-template-columns: 280px 1fr;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body class="system-page dashboard-v2">
+
+  <div class="dashboard-layout">
+    <!-- Sidebar Overlay (mobile) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Main navigation">
+      <div class="sidebar-header">
+        <img src="assets/dash_logo.svg" alt="Kenya Revenue Authority" class="sidebar-logo-img"
+          onerror="this.style.display='none'; this.parentElement.innerHTML += getKRALogoHeaderSVG();">
+        <!-- <div class="sidebar-tagline">Tulipe Ushuru, Tujitegemee</div> -->
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="nav-item active" aria-current="page">
+          <!-- <span class="nav-item-icon">&#127968;</span> -->
+          Home
+        </a>
+        <a href="file-returns.html" class="nav-item">
+          <!-- <span class="nav-item-icon">&#128196;</span> -->
+          File Returns
+        </a>
+        <a href="payment.html" class="nav-item">
+          <!-- <span class="nav-item-icon">&#128179;</span> -->
+          Payments
+        </a>
+        <a href="#" class="nav-item" onclick="showToast('Tax Compliance page coming soon', 'info'); return false;">
+          <!-- <span class="nav-item-icon">&#9989;</span> -->
+          Tax Compliance
+        </a>
+        <a href="#" class="nav-item" onclick="showToast('Payroll page coming soon', 'info'); return false;">
+          <!-- <span class="nav-item-icon">&#128176;</span> -->
+          Payroll
+        </a>
+
+        <a href="#" class="nav-item" onclick="showToast('Payroll Management coming soon', 'info'); return false;">
+          <!-- <span class="nav-item-icon">&#128100;</span> -->
+          Payroll Management
+        </a>
+        <a href="#" class="nav-item" onclick="showToast('Tax Agent page coming soon', 'info'); return false;">
+          <!-- <span class="nav-item-icon">&#128203;</span> -->
+          Tax Agent
+          <span class="nav-arrow">&#9660;</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showToast('Invoicing page coming soon', 'info'); return false;">
+          <!-- <span class="nav-item-icon">&#128196;</span> -->
+          Invoicing (eTIMS)
+        </a>
+
+        <div class="nav-section-label">CUSTOMS</div>
+        <a href="#" class="nav-item" onclick="showToast('Exporter Profile coming soon', 'info'); return false;">
+          <!-- <span class="nav-item-icon">&#127758;</span> -->
+          Exporter Profile
+        </a>
+        <a href="#" class="nav-item" onclick="showToast('Licences page coming soon', 'info'); return false;">
+          <!-- <span class="nav-item-icon">&#128220;</span> -->
+          Licences
+        </a>
+        <a href="#" class="nav-item" onclick="showToast('Declaration Checker coming soon', 'info'); return false;">
+          <!-- <span class="nav-item-icon">&#128270;</span> -->
+          Declaration Checker
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#" class="nav-item" onclick="showToast('Help & Support coming soon', 'info'); return false;">
+          <!-- <span class="nav-item-icon">&#10067;</span> -->
+          Help &amp; Support
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          <select class="account-type-select" aria-label="Account type">
+            <option value="individual" selected>Individual</option>
+            <option value="business">Business</option>
+          </select>
+        </div>
+
+        <div class="topbar-right">
+          <button class="topbar-btn-secondary"
+            onclick="showToast('Checkers page coming soon', 'info')">Checkers</button>
+          <a href="file-returns.html" class="topbar-btn-orange">File Returns</a>
+
+          <button class="notif-icon" aria-label="Notifications" onclick="showToast('No new notifications', 'info')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="notif-badge">3</span>
+          </button>
+
+          <button class="notif-icon" aria-label="Important notifications"
+            onclick="showToast('No important notifications', 'info')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="notif-badge">1</span>
+          </button>
+
+          <div class="user-profile-btn" id="profileMenu" tabindex="0" role="button" aria-label="User menu">
+            <div class="user-avatar" id="profileAvatar">GK</div>
+            <span class="user-name-text" id="profileName">Gideon K.</span>
+            <span class="user-arrow">&#9660;</span>
+
+            <div class="user-dropdown-menu" id="profileDropdown">
+              <a href="#" onclick="showToast('Profile page coming soon', 'info'); return false;">
+                <span>&#128100;</span> View Profile
+              </a>
+              <a href="account-switcher.html">
+                <span>&#128260;</span> Switch Account
+              </a>
+              <div class="dropdown-divider"></div>
+              <button onclick="logout()">
+                <span>&#x1F6AA;</span> Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <main class="dash-main">
+        <h1 class="page-title">Home</h1>
+
+        <div class="dash-grid">
+          <!-- LEFT COLUMN: Profile Card -->
+          <div class="profile-card fade-in">
+            <div class="profile-top">
+              <div class="profile-avatar-lg" id="profileAvatarLg">GK</div>
+              <h2 id="profileFullName">Gideon Kipamet Kaiyian</h2>
+              <p class="profile-pin-label">PIN No.</p>
+              <p class="profile-pin-value" id="profilePinValue">A012345678X</p>
+              <span class="profile-badge">Registered</span>
+            </div>
+
+            <div class="profile-section">
+              <h3>Tax Obligations</h3>
+              <span class="tax-obligation-tag">Income Tax - Resident Individual</span>
+            </div>
+
+            <div class="profile-section">
+              <h3>Contact Information</h3>
+              <div class="profile-detail-row">
+                <span class="detail-label">Phone</span>
+                <span class="detail-value" id="profilePhone">+254*****678</span>
+              </div>
+              <div class="profile-detail-row">
+                <span class="detail-label">Email</span>
+                <span class="detail-value" id="profileEmail">GI***@EXAMPLE.COM</span>
+              </div>
+            </div>
+
+            <div class="profile-section">
+              <h3>Address</h3>
+              <div class="profile-detail-row">
+                <span class="detail-label">County</span>
+                <span class="detail-value">Nairobi County</span>
+              </div>
+              <div class="profile-detail-row">
+                <span class="detail-label">Tax Area</span>
+                <span class="detail-value">Westlands</span>
+              </div>
+              <div class="profile-detail-row">
+                <span class="detail-label">Postal Code</span>
+                <span class="detail-value">P.O Box 123</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Action Cards -->
+          <div class="action-cards">
+            <!-- Nominate Tax Agent -->
+            <div class="action-card fade-in" style="position: relative; animation-delay: 0.05s;">
+              <div style="display: flex; gap: 4px; position: absolute; top: 16px; right: 16px;">
+                <span style="width:8px;height:8px;border-radius:50%;background:#16A34A;display:inline-block;"></span>
+                <span style="width:8px;height:8px;border-radius:50%;background:#F59E0B;display:inline-block;"></span>
+              </div>
+              <div class="action-card-header">
+                <div class="action-card-icon icon-blue">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M9 12h6" />
+                    <path d="M12 9v6" />
+                  </svg>
+                </div>
+                <h3>Nominate a Tax Agent</h3>
+              </div>
+              <p>Did you know you can appoint a licensed and verified tax agent to handle your taxes?</p>
+              <button class="btn-card-action" onclick="showToast('Tax Agent nomination coming soon', 'info')">Nominate
+                Tax Agent</button>
+            </div>
+
+            <!-- KRA PIN -->
+            <div class="action-card kra-pin-card fade-in" style="animation-delay: 0.1s;">
+              <div class="action-card-header">
+                <div class="action-card-icon" style="background: rgba(217,119,6,0.2);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" />
+                    <path d="M12 18h.01" />
+                  </svg>
+                </div>
+                <h3>KRA PIN</h3>
+              </div>
+              <p>The Personal Identification Number is your unique identifier when dealing with various tax-related
+                transactions and obligations.</p>
+            </div>
+
+            <!-- Tax Liability -->
+            <div class="action-card fade-in" style="animation-delay: 0.15s;">
+              <div class="action-card-header">
+                <div class="action-card-icon icon-blue">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <path d="M2 7h20" />
+                    <path d="M12 17v4" />
+                    <path d="M8 21h8" />
+                  </svg>
+                </div>
+                <h3>Tax Liability</h3>
+              </div>
+              <p class="liability-amount-text">Total Tax Liability</p>
+              <div class="liability-row">
+                <span class="liability-amount-value" id="liabilityAmount">KES 0.00</span>
+                <button class="btn-eye" id="toggleLiability" aria-label="Toggle visibility"
+                  onclick="toggleLiabilityVisibility()">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+              <button class="btn-card-outline"
+                onclick="showToast('Tax liability details coming soon', 'info')">View</button>
+            </div>
+
+            <!-- Tax Compliance -->
+            <div class="action-card fade-in" style="animation-delay: 0.2s;">
+              <div class="action-card-header">
+                <div class="action-card-icon icon-green">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <h3>Tax Compliance</h3>
+              </div>
+              <p>The tax compliance certificate is proof of having filed and paid all your taxes.</p>
+              <button class="btn-card-action" onclick="showToast('TCC application coming soon', 'info')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="16" />
+                  <line x1="8" y1="12" x2="16" y2="12" />
+                </svg>
+                Apply For TCC
+              </button>
+            </div>
+
+            <!-- Organisations -->
+            <div class="action-card org-card fade-in" style="animation-delay: 0.25s;">
+              <div class="org-icon">&#127970;</div>
+              <h3>Organisations</h3>
+              <p>No organizations added</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="system-script.js"></script>
+  <script>
+    // Auth check
+    const session = requireAuth();
+
+    if (session) {
+      const initials = getInitials(session.name);
+      const firstName = session.name.split(' ')[0];
+
+      // Top bar
+      document.getElementById('profileAvatar').textContent = initials;
+      document.getElementById('profileName').textContent = firstName + ' ' + session.name.split(' ').pop().charAt(0) + '.';
+
+      // Profile card
+      document.getElementById('profileAvatarLg').textContent = initials;
+      document.getElementById('profileFullName').textContent = session.name;
+      document.getElementById('profilePinValue').textContent = session.pin;
+
+      // Mask contact info
+      const phone = session.phone || '+254 712 345 678';
+      const maskedPhone = phone.substring(0, 4) + '*****' + phone.slice(-3);
+      document.getElementById('profilePhone').textContent = maskedPhone;
+
+      const email = session.email || 'user@example.com';
+      const emailParts = email.split('@');
+      const maskedEmail = emailParts[0].substring(0, 2).toUpperCase() + '***@' + emailParts[1].toUpperCase();
+      document.getElementById('profileEmail').textContent = maskedEmail;
+    }
+
+    // Sidebar toggle
+    initSidebar();
+
+    // Profile dropdown
+    const profileMenu = document.getElementById('profileMenu');
+    const profileDropdown = document.getElementById('profileDropdown');
+
+    profileMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+      profileDropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', () => {
+      profileDropdown.classList.remove('show');
+    });
+
+    // Tax liability toggle
+    let liabilityVisible = true;
+    function toggleLiabilityVisibility() {
+      const el = document.getElementById('liabilityAmount');
+      liabilityVisible = !liabilityVisible;
+      if (liabilityVisible) {
+        el.classList.remove('blurred');
+        el.textContent = 'KES 0.00';
+      } else {
+        el.classList.add('blurred');
+        el.textContent = 'KES 0.00';
+      }
+    }
+
+    // Close sidebar on outside click (mobile)
+    document.addEventListener('click', (e) => {
+      const sidebar = document.getElementById('sidebar');
+      const hamburger = document.getElementById('hamburgerBtn');
+      if (window.innerWidth <= 768) {
+        if (sidebar && !sidebar.contains(e.target) && hamburger && !hamburger.contains(e.target)) {
+          sidebar.classList.remove('open');
+          const overlay = document.getElementById('sidebarOverlay');
+          if (overlay) overlay.classList.remove('open');
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
