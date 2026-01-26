@@ -203,11 +203,11 @@ body {
 .hero {
     padding-top: 120px;
     padding-bottom: var(--spacing-4xl);
-    background: linear-gradient(135deg, var(--primary-red) 0%, #991B1B 100%);
+    background: url("../assets/Background.png") center / cover no-repeat;
     color: var(--white);
     position: relative;
     overflow: hidden;
-    z-index: 0;
+    z-index: 1;
 }
 
 .hero::before {
@@ -2249,8 +2249,9 @@ body {
     width: 80px;
     height: 80px;
     border-radius: var(--radius-full);
-    background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark));
-    color: var(--white);
+    background: transparent;
+    color: var(--gray-900);
+    border: 1.5px solid var(--gray-800);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2792,7 +2793,7 @@ body {
 .logo-text {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--primary-red);
+    color: var(--primary-red-dark);
     letter-spacing: -0.5px;
 }
 
@@ -2981,15 +2982,16 @@ body {
 }
 
 .about-stats .stat-card {
-    background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark));
-    color: var(--white);
-    padding: var(--spacing-xl);
+    background: transparent;
+    color: var(--gray-900);
+    padding: var(--spacing-md);
     border-radius: var(--radius-lg);
+    border: 1.5px solid var(--gray-800);
     text-align: center;
 }
 
 .about-stats .stat-number {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 700;
     display: block;
 }
@@ -3148,6 +3150,22 @@ body {
     background: linear-gradient(135deg, #0891B2, #0E7490);
 }
 
+/* Project thumbnail background images */
+.placeholder-thumbnail.gradient-1 {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.7), rgba(153, 27, 27, 0.75)),
+        url('assets/Background.png') center / cover no-repeat;
+}
+
+.placeholder-thumbnail.gradient-2 {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.7), rgba(29, 78, 216, 0.75)),
+        url('assets/SHA_background.png') center / cover no-repeat;
+}
+
+.placeholder-thumbnail.gradient-3 {
+    background: linear-gradient(135deg, rgba(22, 163, 74, 0.7), rgba(21, 128, 61, 0.75)),
+        url('assets/county_background.png') center / cover no-repeat;
+}
+
 .project-badge {
     position: absolute;
     top: var(--spacing-md);
@@ -3270,7 +3288,9 @@ body {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    color: var(--white);
+    background: transparent !important;
+    color: var(--gray-900);
+    border: 1.5px solid var(--gray-800);
 }
 
 .placeholder-avatar .initials {
