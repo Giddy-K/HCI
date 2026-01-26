@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KRA iTax System - Account Switcher">
+  <title>Account Switcher | KRA iTax System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="system-styles.css">
+</head>
+
+<body class="system-page">
+
+  <div class="switcher-page">
+    <!-- Header -->
+    <header class="switcher-header">
+      <div class="kra-logo-text"><img class="auth-logo" id="kraLogo" src="assets/KRA_Logo.png"></img></div>
+      <div class="profile-menu" id="profileMenu" tabindex="0" role="button" aria-label="User menu">
+        <div class="profile-avatar" id="profileAvatar">GK</div>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+        <div class="profile-dropdown" id="profileDropdown">
+          <a href="auth.html" onclick="clearSession()">
+            <span>&#x1F6AA;</span> Logout
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="switcher-content fade-in">
+      <h2>Account switcher</h2>
+      <p class="switcher-subtitle">Here are the accounts you can switch between</p>
+
+      <hr style="border: none; border-top: 1px solid var(--medium-gray); margin-bottom: 32px;">
+
+      <!-- Personal Account Section -->
+      <div class="switcher-section">
+        <h4>Personal Account</h4>
+        <p class="section-desc">Proceed to your personal account</p>
+
+        <a href="dashboard.html?account=personal" class="account-card" id="personalCard"
+          aria-label="Switch to personal account">
+          <div class="account-avatar" id="personalAvatar">GK</div>
+          <div class="account-info">
+            <div class="account-name" id="personalName">GIDEON KIPAMET KAIYIAN</div>
+            <div class="account-pin" id="personalPin">PIN: A012345678X</div>
+          </div>
+          <div class="account-arrow">&#8250;</div>
+        </a>
+      </div>
+
+      <!-- Organisation Accounts Section -->
+      <div class="switcher-section">
+        <h4>Organisations Accounts</h4>
+        <p class="section-desc">Manage organisation accounts</p>
+
+        <div id="businessCards"></div>
+
+        <button type="button" class="add-business-btn" id="addBusinessBtn" aria-label="Add a new business">
+          <span style="font-size: 18px; font-weight: 400;">+</span>
+          Add a new Business
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="system-script.js"></script>
+  <script>
+    // Set logo
+    document.getElementById('headerLogo').innerHTML = getKRALogoHeaderSVG();
+
+    // Get session data
+    const session = getSession();
+    if (!session) {
+      window.location.href = 'auth.html';
+    }
+
+    if (session) {
+      const initials = getInitials(session.name);
+      document.getElementById('profileAvatar').textContent = initials;
+      document.getElementById('personalAvatar').textContent = initials;
+      document.getElementById('personalName').textContent = session.name.toUpperCase();
+      document.getElementById('personalPin').textContent = 'PIN: ' + session.pin;
+
+      // Show business accounts if any
+      const businessCards = document.getElementById('businessCards');
+      if (session.businesses && session.businesses.length > 0) {
+        session.businesses.forEach(biz => {
+          const card = document.createElement('a');
+          card.href = 'dashboard.html?account=business&pin=' + biz.pin;
+          card.className = 'account-card';
+          card.setAttribute('aria-label', 'Switch to ' + biz.name);
+          card.innerHTML = `
+            <div class="account-avatar" style="background: var(--secondary-blue-light); color: var(--secondary-blue);">${getInitials(biz.name)}</div>
+            <div class="account-info">
+              <div class="account-name">${biz.name.toUpperCase()}</div>
+              <div class="account-pin">PIN: ${biz.pin}</div>
+            </div>
+            <div class="account-arrow">&#8250;</div>
+          `;
+          businessCards.appendChild(card);
+        });
+      }
+    }
+
+    // Add business button
+    document.getElementById('addBusinessBtn').addEventListener('click', () => {
+      showToast('Business registration form coming soon', 'info');
+    });
+
+    // Profile dropdown
+    initProfileDropdown();
+  </script>
+</body>
+
+</html>
