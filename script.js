@@ -414,20 +414,8 @@ focusStyle.textContent = `
 document.head.appendChild(focusStyle);
 
 // ===================================
-// Parallax Effect for Hero Section
+// Hero Section (static, no parallax)
 // ===================================
-const hero = document.querySelector('.hero');
-
-if (hero) {
-    window.addEventListener('scroll', () => {
-        const scrolled = window.scrollY;
-        const parallaxSpeed = 0.3;
-
-        if (scrolled < hero.offsetHeight) {
-            hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-        }
-    });
-}
 
 // ===================================
 // Progress Bar for Page Scroll
