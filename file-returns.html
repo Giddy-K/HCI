@@ -169,11 +169,11 @@
             <input type="number" id="nssfDeduction" class="form-input" value="6480" min="0" step="100">
           </div>
           <div class="form-group">
-            <label for="nhifDeduction" class="form-label">NHIF Contribution (KES)
+            <label for="SHADeduction" class="form-label">SHA Contribution (KES)
               <span class="help-icon"
                 data-tooltip="National Hospital Insurance Fund. This is an insurance relief, not a direct deduction">?</span>
             </label>
-            <input type="number" id="nhifDeduction" class="form-input" value="5100" min="0" step="100">
+            <input type="number" id="SHADeduction" class="form-input" value="5100" min="0" step="100">
           </div>
           <div class="form-group">
             <label for="insuranceDeduction" class="form-label">Life Insurance Premium (KES)
@@ -222,7 +222,7 @@
           </div>
           <div class="alert alert-info mt-3" style="font-size: 13px;">
             <span>&#128200;</span>
-            <span>Taxable income is your gross income minus allowable deductions (NSSF and Housing Levy). NHIF and
+            <span>Taxable income is your gross income minus allowable deductions (NSSF and Housing Levy). SHA and
               insurance provide relief on the tax, not the income.</span>
           </div>
         </div>
@@ -293,13 +293,13 @@
             <label class="form-label">Payment Method</label>
             <div class="radio-group" style="flex-direction: column;">
               <label class="radio-option" style="flex: auto;">
-                <input type="radio" name="payMethod" value="mpesa" checked> <span>&#128241; M-PESA</span>
+                <input type="radio" name="payMethod" value="mpesa" checked> <span>M-PESA</span>
               </label>
               <label class="radio-option" style="flex: auto;">
-                <input type="radio" name="payMethod" value="bank"> <span>&#127974; Bank Transfer</span>
+                <input type="radio" name="payMethod" value="bank"> <span>Bank Transfer</span>
               </label>
               <label class="radio-option" style="flex: auto;">
-                <input type="radio" name="payMethod" value="card"> <span>&#128179; Credit/Debit Card</span>
+                <input type="radio" name="payMethod" value="card"> <span>Credit/Debit Card</span>
               </label>
             </div>
           </div>
@@ -442,7 +442,7 @@
     if (draft) {
       if (draft.employmentIncome) document.getElementById('employmentIncome').value = draft.employmentIncome;
       if (draft.nssfDeduction) document.getElementById('nssfDeduction').value = draft.nssfDeduction;
-      if (draft.nhifDeduction) document.getElementById('nhifDeduction').value = draft.nhifDeduction;
+      if (draft.SHADeduction) document.getElementById('SHADeduction').value = draft.SHADeduction;
       if (draft.housingDeduction) document.getElementById('housingDeduction').value = draft.housingDeduction;
     }
 
@@ -544,8 +544,8 @@
       return { nssf, housing, total: nssf + housing };
     }
 
-    function getNHIF() {
-      return parseFloat(document.getElementById('nhifDeduction').value) || 0;
+    function getSHA() {
+      return parseFloat(document.getElementById('SHADeduction').value) || 0;
     }
 
     function getInsurance() {
@@ -565,9 +565,9 @@
 
     function updateDeductions() {
       const d = getDeductions();
-      const nhif = getNHIF();
+      const SHA = getSHA();
       const ins = getInsurance();
-      document.getElementById('totalDeductions').textContent = formatCurrency(d.total + nhif + ins);
+      document.getElementById('totalDeductions').textContent = formatCurrency(d.total + SHA + ins);
     }
 
     function updateTaxableIncome() {
@@ -594,9 +594,9 @@
       let monthlyTax = band1 + band2 + band3;
 
       const personalRelief = 2400;
-      const nhif = getNHIF();
+      const SHA = getSHA();
       const ins = getInsurance();
-      const insRelief = Math.min((nhif + ins) * 0.15 / 3, 5000); // 15% of premiums, max 5000/month
+      const insRelief = Math.min((SHA + ins) * 0.15 / 3, 5000); // 15% of premiums, max 5000/month
 
       const netMonthly = Math.max(0, monthlyTax - personalRelief - insRelief);
       const quarterly = Math.round(netMonthly * 3);
@@ -624,9 +624,9 @@
       let band3 = Math.max(0, monthlyTaxable - 32333) * 0.30;
       let monthlyTax = band1 + band2 + band3;
       const personalRelief = 2400;
-      const nhif = getNHIF();
+      const SHA = getSHA();
       const ins = getInsurance();
-      const insRelief = Math.min((nhif + ins) * 0.15 / 3, 5000);
+      const insRelief = Math.min((SHA + ins) * 0.15 / 3, 5000);
       const netMonthly = Math.max(0, monthlyTax - personalRelief - insRelief);
       const quarterly = Math.round(netMonthly * 3);
 
@@ -636,7 +636,7 @@
     function updateReview() {
       const gross = getGrossIncome();
       const d = getDeductions();
-      const nhif = getNHIF();
+      const SHA = getSHA();
       const ins = getInsurance();
       const taxable = Math.max(0, gross - d.nssf - d.housing);
       const monthlyTaxable = taxable / 3;
@@ -646,7 +646,7 @@
       let band3 = Math.max(0, monthlyTaxable - 32333) * 0.30;
       let monthlyTax = band1 + band2 + band3;
       const personalRelief = 2400;
-      const insRelief = Math.min((nhif + ins) * 0.15 / 3, 5000);
+      const insRelief = Math.min((SHA + ins) * 0.15 / 3, 5000);
       const netMonthly = Math.max(0, monthlyTax - personalRelief - insRelief);
       const quarterly = Math.round(netMonthly * 3);
 
@@ -661,7 +661,7 @@
       }
       document.getElementById('revPeriod').textContent = quarter + ' ' + year;
       document.getElementById('revGross').textContent = formatCurrency(gross);
-      document.getElementById('revDeductions').textContent = formatCurrency(d.total + nhif + ins);
+      document.getElementById('revDeductions').textContent = formatCurrency(d.total + SHA + ins);
       document.getElementById('revTaxable').textContent = formatCurrency(taxable);
       document.getElementById('revTax').textContent = formatCurrency(quarterly);
       document.getElementById('revPayment').textContent = methodLabels[payMethod] || payMethod;
@@ -685,7 +685,7 @@
         businessIncome: document.getElementById('businessIncome').value,
         rentalIncome: document.getElementById('rentalIncome').value,
         nssfDeduction: document.getElementById('nssfDeduction').value,
-        nhifDeduction: document.getElementById('nhifDeduction').value,
+        SHADeduction: document.getElementById('SHADeduction').value,
         insuranceDeduction: document.getElementById('insuranceDeduction').value,
         housingDeduction: document.getElementById('housingDeduction').value,
         currentStep: currentStep
