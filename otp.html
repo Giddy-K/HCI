@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KRA iTax System - OTP Verification">
+  <title>Verify Identity | KRA iTax System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="system-styles.css">
+</head>
+<body class="system-page">
+
+  <div class="otp-container">
+    <div class="otp-card slide-up">
+      <!-- Back -->
+      <a href="auth.html" style="display: inline-flex; align-items: center; gap: 6px; color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to Login
+      </a>
+
+      <!-- Logo -->
+      <div style="display: flex; justify-content: center;">
+        <img class="auth-logo" id="kraLogo" src="assets/KRA_Logo.png"></img>
+      </div>
+
+      <!-- Title -->
+      <h2>Verify Your Identity</h2>
+      <p class="otp-subtitle">Enter the 6-digit code sent to<br><strong id="maskedPhone">+254 7XX XXX XXX</strong></p>
+
+      <!-- OTP Inputs -->
+      <div class="otp-inputs" role="group" aria-label="One-time password">
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 1" autofocus>
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 2">
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 3">
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 4">
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 5">
+        <input type="text" class="otp-input" maxlength="1" inputmode="numeric" pattern="[0-9]" aria-label="Digit 6">
+      </div>
+
+      <!-- Error message -->
+      <p class="otp-error-msg" id="otpError">Invalid code. Please try again.</p>
+
+      <!-- Resend -->
+      <div class="otp-resend">
+        Didn't receive code?
+        <button type="button" id="resendBtn" disabled>Resend Code (<span id="countdown">60</span>s)</button>
+      </div>
+
+      <!-- Verify Button -->
+      <button type="button" class="btn btn-primary btn-full btn-lg" id="verifyBtn">
+        Verify
+      </button>
+
+      <!-- Alternative -->
+      <div class="otp-alt">
+        <span>📧</span>
+        <button type="button" id="emailAltBtn">Send to email instead</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay" role="alert" aria-live="assertive">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Verifying code...</p>
+    <p class="loading-subtext">Please wait while we confirm your identity.</p>
+  </div>
+
+  <script src="system-script.js"></script>
+  <script>
+    // Logo
+    document.getElementById('kraLogo').innerHTML = getKRALogoSVG(56);
+
+    // Get session
+    const session = getSession();
+    if (session) {
+      const phone = session.phone || '+254 7XX XXX XXX';
+      // Mask phone
+      const parts = phone.split(' ');
+      if (parts.length >= 3) {
+        document.getElementById('maskedPhone').textContent = parts[0] + ' ' + parts[1].substring(0,1) + 'XX XXX ' + parts[parts.length - 1].substring(parts[parts.length - 1].length - 3);
+      }
+    }
+
+    // OTP Input Logic
+    const otpInputs = document.querySelectorAll('.otp-input');
+    const verifyBtn = document.getElementById('verifyBtn');
+
+    otpInputs.forEach((input, index) => {
+      // Handle input
+      input.addEventListener('input', (e) => {
+        const val = e.target.value;
+
+        // Only allow digits
+        if (!/^\d$/.test(val)) {
+          e.target.value = '';
+          return;
+        }
+
+        input.classList.add('filled');
+        input.classList.remove('error');
+
+        // Auto-advance
+        if (val && index < otpInputs.length - 1) {
+          otpInputs[index + 1].focus();
+        }
+
+        // Check if all filled
+        const code = getOTPCode();
+        if (code.length === 6) {
+          setTimeout(() => submitOTP(), 300);
+        }
+      });
+
+      // Handle backspace
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !input.value && index > 0) {
+          otpInputs[index - 1].focus();
+          otpInputs[index - 1].value = '';
+          otpInputs[index - 1].classList.remove('filled');
+        }
+      });
+
+      // Handle paste
+      input.addEventListener('paste', (e) => {
+        e.preventDefault();
+        const paste = (e.clipboardData || window.clipboardData).getData('text').trim();
+        if (/^\d{6}$/.test(paste)) {
+          otpInputs.forEach((inp, i) => {
+            inp.value = paste[i];
+            inp.classList.add('filled');
+          });
+          otpInputs[5].focus();
+          setTimeout(() => submitOTP(), 300);
+        }
+      });
+    });
+
+    function getOTPCode() {
+      return Array.from(otpInputs).map(i => i.value).join('');
+    }
+
+    function submitOTP() {
+      const code = getOTPCode();
+      if (code.length !== 6) {
+        showToast('Please enter all 6 digits', 'warning');
+        return;
+      }
+
+      showLoading('Verifying code...', 'Please wait while we confirm your identity.');
+
+      setTimeout(() => {
+        hideLoading();
+        // Any code works - navigate to account switcher
+        window.location.href = 'account-switcher.html';
+      }, 2000);
+    }
+
+    // Verify button
+    verifyBtn.addEventListener('click', submitOTP);
+
+    // Countdown timer
+    let countdownVal = 60;
+    const countdownEl = document.getElementById('countdown');
+    const resendBtn = document.getElementById('resendBtn');
+
+    const countdownInterval = setInterval(() => {
+      countdownVal--;
+      countdownEl.textContent = countdownVal;
+
+      if (countdownVal <= 0) {
+        clearInterval(countdownInterval);
+        resendBtn.disabled = false;
+        resendBtn.textContent = 'Resend Code';
+      }
+    }, 1000);
+
+    // Resend
+    resendBtn.addEventListener('click', () => {
+      if (resendBtn.disabled) return;
+      showToast('New code sent to your phone', 'success');
+      resendBtn.disabled = true;
+      countdownVal = 60;
+      countdownEl.textContent = countdownVal;
+      resendBtn.innerHTML = 'Resend Code (<span id="countdown">60</span>s)';
+
+      const newCountdown = setInterval(() => {
+        countdownVal--;
+        const el = document.getElementById('countdown');
+        if (el) el.textContent = countdownVal;
+        if (countdownVal <= 0) {
+          clearInterval(newCountdown);
+          resendBtn.disabled = false;
+          resendBtn.textContent = 'Resend Code';
+        }
+      }, 1000);
+    });
+
+    // Email alternative
+    document.getElementById('emailAltBtn').addEventListener('click', () => {
+      showToast('Verification code sent to your email', 'success');
+    });
+  </script>
+</body>
+</html>
