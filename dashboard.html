@@ -815,14 +815,14 @@
 
             <div class="user-dropdown-menu" id="profileDropdown">
               <a href="#" onclick="showToast('Profile page coming soon', 'info'); return false;">
-                <span>&#128100;</span> View Profile
+                View Profile
               </a>
               <a href="account-switcher.html">
-                <span>&#128260;</span> Switch Account
+                Switch Account
               </a>
               <div class="dropdown-divider"></div>
               <button onclick="logout()">
-                <span>&#x1F6AA;</span> Logout
+                Logout
               </button>
             </div>
           </div>
@@ -1030,15 +1030,15 @@
     });
 
     // Tax liability toggle
-    let liabilityVisible = true;
+    let liabilityVisible = false;
     function toggleLiabilityVisibility() {
       const el = document.getElementById('liabilityAmount');
       liabilityVisible = !liabilityVisible;
       if (liabilityVisible) {
-        el.classList.remove('blurred');
+        el.classList.add('blurred');
         el.textContent = 'KES 0.00';
       } else {
-        el.classList.add('blurred');
+        el.classList.remove('blurred');
         el.textContent = 'KES 0.00';
       }
     }
