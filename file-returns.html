@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="KRA iTax System - File Tax Return">
+  <title>File Returns | KRA iTax System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="system-styles.css">
+</head>
+
+<body class="system-page">
+
+  <div class="wizard-page">
+    <!-- Header -->
+    <header class="wizard-header">
+      <div class="wizard-header-left">
+        <div id="headerLogo" style="display: flex; align-items: center;"></div>
+        <span class="wizard-title">File Income Tax Return</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button type="button" class="btn btn-outline btn-sm" id="saveDraftBtn">Save as Draft</button>
+        <a href="dashboard.html" class="wizard-close" aria-label="Close wizard">&times;</a>
+      </div>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="wizard-progress">
+      <div class="progress-bar-container" id="progressBar">
+        <div class="progress-step active" data-step="1"></div>
+        <div class="progress-step" data-step="2"></div>
+        <div class="progress-step" data-step="3"></div>
+        <div class="progress-step" data-step="4"></div>
+        <div class="progress-step" data-step="5"></div>
+        <div class="progress-step" data-step="6"></div>
+        <div class="progress-step" data-step="7"></div>
+        <div class="progress-step" data-step="8"></div>
+      </div>
+      <div class="progress-info">
+        <span class="progress-step-label" id="progressLabel">Step 1 of 8</span>
+        <span id="progressTitle">Personal Information</span>
+      </div>
+    </div>
+
+    <!-- Wizard Content -->
+    <div class="wizard-content">
+
+      <!-- STEP 1: Personal Information -->
+      <div class="wizard-step active" data-step="1">
+        <h2 class="wizard-step-title">Personal Information</h2>
+        <p class="wizard-step-desc">Confirm your personal details for this tax return.</p>
+        <div class="wizard-form-card">
+          <div class="form-group">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" id="fullName" class="form-input" value="Gideon Kipamet Kaiyian" readonly
+              aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="kraPin" class="form-label">KRA PIN
+              <span class="help-icon" data-tooltip="Your unique Kenya Revenue Authority identification number">?</span>
+            </label>
+            <input type="text" id="kraPin" class="form-input" value="A012345678X" disabled>
+          </div>
+          <div class="form-group">
+            <label for="taxYear" class="form-label">Tax Year</label>
+            <select id="taxYear" class="form-select">
+              <option value="2024" selected>2024</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Filing Quarter</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="quarter" value="Q1"> <span>Q1</span></label>
+              <label class="radio-option"><input type="radio" name="quarter" value="Q2"> <span>Q2</span></label>
+              <label class="radio-option"><input type="radio" name="quarter" value="Q3"> <span>Q3</span></label>
+              <label class="radio-option"><input type="radio" name="quarter" value="Q4" checked> <span>Q4</span></label>
+            </div>
+          </div>
+          <div class="alert alert-info" style="font-size: 13px;">
+            <span>&#8505;&#65039;</span>
+            All quarterly filings must be completed by 20th of the following month.
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Income Sources -->
+      <div class="wizard-step" data-step="2">
+        <h2 class="wizard-step-title">Income Sources</h2>
+        <p class="wizard-step-desc">Select all sources of income for this period.</p>
+        <div class="wizard-form-card">
+          <div class="form-group">
+            <label class="form-label">Select your income sources
+              <span class="help-icon" data-tooltip="Check all that apply to your situation during this quarter">?</span>
+            </label>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <label class="checkbox-option" style="flex: auto;">
+                <input type="checkbox" id="srcEmployment" checked> <span>Employment Income</span>
+              </label>
+              <label class="checkbox-option" style="flex: auto;">
+                <input type="checkbox" id="srcBusiness"> <span>Business Income</span>
+              </label>
+              <label class="checkbox-option" style="flex: auto;">
+                <input type="checkbox" id="srcRental"> <span>Rental Income</span>
+              </label>
+              <label class="checkbox-option" style="flex: auto;">
+                <input type="checkbox" id="srcInvestment"> <span>Investment Income</span>
+              </label>
+              <label class="checkbox-option" style="flex: auto;">
+                <input type="checkbox" id="srcOther"> <span>Other Income</span>
+              </label>
+            </div>
+          </div>
+          <div class="alert alert-info" style="font-size: 13px;">
+            <span>&#128161;</span>
+            <span>Most employed Kenyans only need to select "Employment Income". If you have a side business or rental
+              property, select those too.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: Gross Income -->
+      <div class="wizard-step" data-step="3">
+        <h2 class="wizard-step-title">Gross Income</h2>
+        <p class="wizard-step-desc">Enter your total income for the selected quarter.</p>
+        <div class="wizard-form-card">
+          <div class="form-group">
+            <label for="employmentIncome" class="form-label">Employment Income (KES)
+              <span class="help-icon"
+                data-tooltip="Your total gross salary including allowances before any deductions">?</span>
+            </label>
+            <input type="number" id="employmentIncome" class="form-input" placeholder="e.g. 250,000" value="280000"
+              min="0" step="1000">
+            <p class="form-help">Enter your total gross salary for Q4 2024</p>
+            <p class="form-error" id="incomeError">Please enter your total income</p>
+          </div>
+          <div class="form-group" id="businessIncomeGroup" style="display:none;">
+            <label for="businessIncome" class="form-label">Business Income (KES)</label>
+            <input type="number" id="businessIncome" class="form-input" placeholder="e.g. 100,000" value="0" min="0"
+              step="1000">
+          </div>
+          <div class="form-group" id="rentalIncomeGroup" style="display:none;">
+            <label for="rentalIncome" class="form-label">Rental Income (KES)</label>
+            <input type="number" id="rentalIncome" class="form-input" placeholder="e.g. 50,000" value="0" min="0"
+              step="1000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Total Gross Income</label>
+            <div style="font-size: 24px; font-weight: 700; color: var(--dark-gray);" id="totalGrossIncome">KES 280,000
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Allowable Deductions -->
+      <div class="wizard-step" data-step="4">
+        <h2 class="wizard-step-title">Allowable Deductions</h2>
+        <p class="wizard-step-desc">Enter your statutory and allowable deductions.</p>
+        <div class="wizard-form-card">
+          <div class="form-group">
+            <label for="nssfDeduction" class="form-label">NSSF Contribution (KES)
+              <span class="help-icon"
+                data-tooltip="National Social Security Fund contribution. Maximum KES 2,160 per month">?</span>
+            </label>
+            <input type="number" id="nssfDeduction" class="form-input" value="6480" min="0" step="100">
+          </div>
+          <div class="form-group">
+            <label for="nhifDeduction" class="form-label">NHIF Contribution (KES)
+              <span class="help-icon"
+                data-tooltip="National Hospital Insurance Fund. This is an insurance relief, not a direct deduction">?</span>
+            </label>
+            <input type="number" id="nhifDeduction" class="form-input" value="5100" min="0" step="100">
+          </div>
+          <div class="form-group">
+            <label for="insuranceDeduction" class="form-label">Life Insurance Premium (KES)
+              <span class="help-icon"
+                data-tooltip="Annual life insurance premiums qualify for insurance relief">?</span>
+            </label>
+            <input type="number" id="insuranceDeduction" class="form-input" value="0" min="0" step="100">
+          </div>
+          <div class="form-group">
+            <label for="housingDeduction" class="form-label">Affordable Housing Levy (KES)
+              <span class="help-icon"
+                data-tooltip="1.5% of gross salary contributed to the Affordable Housing Fund">?</span>
+            </label>
+            <input type="number" id="housingDeduction" class="form-input" value="4200" min="0" step="100">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Total Deductions</label>
+            <div style="font-size: 24px; font-weight: 700; color: var(--primary-red);" id="totalDeductions">KES 15,780
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5: Taxable Income (Auto-calculated) -->
+      <div class="wizard-step" data-step="5">
+        <h2 class="wizard-step-title">Taxable Income</h2>
+        <p class="wizard-step-desc">Your taxable income is calculated automatically based on your inputs.</p>
+        <div class="wizard-form-card">
+          <div class="tax-breakdown">
+            <div class="tax-row">
+              <span class="label">Total Gross Income</span>
+              <span class="value" id="calcGross">KES 280,000</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Less: NSSF Contribution</span>
+              <span class="value" id="calcNSSF">- KES 6,480</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Less: Housing Levy</span>
+              <span class="value" id="calcHousing">- KES 4,200</span>
+            </div>
+            <div class="tax-row total">
+              <span class="label">Taxable Income</span>
+              <span class="value" id="calcTaxable">KES 269,320</span>
+            </div>
+          </div>
+          <div class="alert alert-info mt-3" style="font-size: 13px;">
+            <span>&#128200;</span>
+            <span>Taxable income is your gross income minus allowable deductions (NSSF and Housing Levy). NHIF and
+              insurance provide relief on the tax, not the income.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 6: Tax Calculation -->
+      <div class="wizard-step" data-step="6">
+        <h2 class="wizard-step-title">Tax Calculation</h2>
+        <p class="wizard-step-desc">Tax computed based on Kenya's PAYE tax brackets (monthly rates applied to quarterly
+          income).</p>
+        <div class="wizard-form-card">
+          <div class="tax-breakdown">
+            <div class="tax-row">
+              <span class="label">Taxable Income (Quarterly)</span>
+              <span class="value" id="taxCalcTaxable">KES 269,320</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Monthly Taxable (&#247; 3)</span>
+              <span class="value" id="taxCalcMonthly">KES 89,773</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">First KES 24,000 @ 10%</span>
+              <span class="value" id="taxBand1">KES 2,400</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Next KES 8,333 @ 25%</span>
+              <span class="value" id="taxBand2">KES 2,083</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Above KES 32,333 @ 30%</span>
+              <span class="value" id="taxBand3">KES 17,232</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Monthly Tax</span>
+              <span class="value" id="taxMonthly">KES 21,715</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Less: Personal Relief</span>
+              <span class="value" id="taxRelief">- KES 2,400</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Less: Insurance Relief</span>
+              <span class="value" id="taxInsRelief">- KES 0</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Net Monthly Tax</span>
+              <span class="value" id="taxNetMonthly">KES 19,315</span>
+            </div>
+            <div class="tax-row total">
+              <span class="label">Quarterly Tax Payable (&times; 3)</span>
+              <span class="value" id="taxQuarterly" style="color: var(--primary-red);">KES 57,946</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 7: Payment Information -->
+      <div class="wizard-step" data-step="7">
+        <h2 class="wizard-step-title">Payment Information</h2>
+        <p class="wizard-step-desc">Choose how you'd like to pay your tax liability.</p>
+        <div class="wizard-form-card">
+          <div class="form-group">
+            <label class="form-label">Amount Due</label>
+            <div style="font-size: 28px; font-weight: 700; color: var(--primary-red); margin-bottom: 16px;"
+              id="paymentAmount">KES 57,946</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Payment Method</label>
+            <div class="radio-group" style="flex-direction: column;">
+              <label class="radio-option" style="flex: auto;">
+                <input type="radio" name="payMethod" value="mpesa" checked> <span>&#128241; M-PESA</span>
+              </label>
+              <label class="radio-option" style="flex: auto;">
+                <input type="radio" name="payMethod" value="bank"> <span>&#127974; Bank Transfer</span>
+              </label>
+              <label class="radio-option" style="flex: auto;">
+                <input type="radio" name="payMethod" value="card"> <span>&#128179; Credit/Debit Card</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group" id="mpesaPhoneGroup">
+            <label for="mpesaPhone" class="form-label">M-PESA Phone Number</label>
+            <input type="tel" id="mpesaPhone" class="form-input" value="+254 712 345 678"
+              placeholder="+254 7XX XXX XXX">
+          </div>
+          <div class="alert alert-info" style="font-size: 13px;">
+            <span>&#128274;</span>
+            <span>You can also choose to pay later after submitting the return. Payment is due before the filing
+              deadline.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 8: Review & Submit -->
+      <div class="wizard-step" data-step="8">
+        <h2 class="wizard-step-title">Review &amp; Submit</h2>
+        <p class="wizard-step-desc">Review all information before submitting your tax return.</p>
+        <div class="wizard-form-card">
+          <div class="tax-breakdown" id="reviewSummary">
+            <div class="tax-row">
+              <span class="label">Taxpayer</span>
+              <span class="value" id="revName">Gideon Kipamet Kaiyian</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">KRA PIN</span>
+              <span class="value" id="revPin">A012345678X</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Tax Period</span>
+              <span class="value" id="revPeriod">Q4 2024</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Gross Income</span>
+              <span class="value" id="revGross">KES 280,000</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Total Deductions</span>
+              <span class="value" id="revDeductions">KES 15,780</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Taxable Income</span>
+              <span class="value" id="revTaxable">KES 269,320</span>
+            </div>
+            <div class="tax-row total">
+              <span class="label">Tax Payable</span>
+              <span class="value" id="revTax" style="color: var(--primary-red);">KES 57,946</span>
+            </div>
+            <div class="tax-row">
+              <span class="label">Payment Method</span>
+              <span class="value" id="revPayment">M-PESA</span>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <label class="checkbox-option"
+              style="flex: auto; border-color: var(--success-green); background: var(--success-green-light);">
+              <input type="checkbox" id="confirmCheckbox">
+              <span>I confirm that the information provided is accurate and complete.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="wizard-nav">
+        <button type="button" class="btn btn-outline" id="prevBtn" style="visibility: hidden;">
+          &larr; Previous
+        </button>
+        <button type="button" class="btn btn-primary" id="nextBtn">
+          Next Step &rarr;
+        </button>
+      </div>
+    </div>
+
+    <!-- Auto-save Indicator -->
+    <div class="autosave-indicator" id="autosaveIndicator">
+      <span class="autosave-dot"></span>
+      <span class="autosave-text">Auto-saved just now</span>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay" role="alert" aria-live="assertive">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Submitting your return...</p>
+    <p class="loading-subtext">Please wait while we process your filing.</p>
+  </div>
+
+  <!-- Success Modal -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal">
+      <div class="success-check">&#10003;</div>
+      <h3>Return Filed Successfully!</h3>
+      <p>Your Q4 2024 Income Tax Return has been submitted.<br>Receipt Number: <strong>KRA-2024-Q4-00847</strong></p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="payment.html" class="btn btn-green btn-full">Proceed to Payment</a>
+        <a href="dashboard.html" class="btn btn-outline btn-full">Back to Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="system-script.js"></script>
+  <script>
+    // Auth check
+    const session = requireAuth();
+
+    // Set logo
+    document.getElementById('headerLogo').innerHTML = getKRALogoSVG(32);
+
+    let currentStep = 1;
+    const totalSteps = 8;
+    const stepTitles = [
+      'Personal Information',
+      'Income Sources',
+      'Gross Income',
+      'Allowable Deductions',
+      'Taxable Income',
+      'Tax Calculation',
+      'Payment Information',
+      'Review & Submit'
+    ];
+
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    // Pre-fill user data
+    if (session) {
+      document.getElementById('fullName').value = session.name;
+      document.getElementById('kraPin').value = session.pin;
+      if (document.getElementById('mpesaPhone')) {
+        document.getElementById('mpesaPhone').value = session.phone;
+      }
+    }
+
+    // Load draft
+    const draft = loadDraft('taxReturnDraft');
+    if (draft) {
+      if (draft.employmentIncome) document.getElementById('employmentIncome').value = draft.employmentIncome;
+      if (draft.nssfDeduction) document.getElementById('nssfDeduction').value = draft.nssfDeduction;
+      if (draft.nhifDeduction) document.getElementById('nhifDeduction').value = draft.nhifDeduction;
+      if (draft.housingDeduction) document.getElementById('housingDeduction').value = draft.housingDeduction;
+    }
+
+    function goToStep(step) {
+      if (step < 1 || step > totalSteps) return;
+
+      // Validate current step before advancing
+      if (step > currentStep && !validateStep(currentStep)) return;
+
+      currentStep = step;
+
+      // Update step visibility
+      document.querySelectorAll('.wizard-step').forEach(s => s.classList.remove('active'));
+      document.querySelector(`.wizard-step[data-step="${step}"]`).classList.add('active');
+
+      // Update progress bar
+      document.querySelectorAll('.progress-step').forEach(p => {
+        const s = parseInt(p.getAttribute('data-step'));
+        p.classList.remove('active', 'completed');
+        if (s < step) p.classList.add('completed');
+        if (s === step) p.classList.add('active');
+      });
+
+      // Update progress text
+      document.getElementById('progressLabel').textContent = `Step ${step} of ${totalSteps}`;
+      document.getElementById('progressTitle').textContent = stepTitles[step - 1];
+
+      // Show/hide buttons
+      prevBtn.style.visibility = step === 1 ? 'hidden' : 'visible';
+
+      if (step === totalSteps) {
+        nextBtn.textContent = 'Submit Return';
+        nextBtn.className = 'btn btn-green';
+        updateReview();
+      } else {
+        nextBtn.innerHTML = 'Next Step &rarr;';
+        nextBtn.className = 'btn btn-primary';
+      }
+
+      // Recalculate on step entry
+      if (step === 3) updateGrossIncome();
+      if (step === 4) updateDeductions();
+      if (step === 5) updateTaxableIncome();
+      if (step === 6) updateTaxCalc();
+      if (step === 7) updatePaymentAmount();
+
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Trigger auto-save
+      doAutoSave();
+    }
+
+    function validateStep(step) {
+      if (step === 3) {
+        const income = parseFloat(document.getElementById('employmentIncome').value);
+        if (!income || income <= 0) {
+          document.getElementById('employmentIncome').classList.add('error');
+          document.getElementById('incomeError').classList.add('visible');
+          return false;
+        }
+        document.getElementById('employmentIncome').classList.remove('error');
+        document.getElementById('incomeError').classList.remove('visible');
+      }
+      if (step === 8) {
+        if (!document.getElementById('confirmCheckbox').checked) {
+          showToast('Please confirm the information is accurate', 'warning');
+          return false;
+        }
+      }
+      return true;
+    }
+
+    // Navigation
+    nextBtn.addEventListener('click', () => {
+      if (currentStep === totalSteps) {
+        if (!validateStep(8)) return;
+        submitReturn();
+      } else {
+        goToStep(currentStep + 1);
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      goToStep(currentStep - 1);
+    });
+
+    // Calculations
+    function getGrossIncome() {
+      const emp = parseFloat(document.getElementById('employmentIncome').value) || 0;
+      const biz = parseFloat(document.getElementById('businessIncome').value) || 0;
+      const rent = parseFloat(document.getElementById('rentalIncome').value) || 0;
+      return emp + biz + rent;
+    }
+
+    function getDeductions() {
+      const nssf = parseFloat(document.getElementById('nssfDeduction').value) || 0;
+      const housing = parseFloat(document.getElementById('housingDeduction').value) || 0;
+      return { nssf, housing, total: nssf + housing };
+    }
+
+    function getNHIF() {
+      return parseFloat(document.getElementById('nhifDeduction').value) || 0;
+    }
+
+    function getInsurance() {
+      return parseFloat(document.getElementById('insuranceDeduction').value) || 0;
+    }
+
+    function updateGrossIncome() {
+      const total = getGrossIncome();
+      document.getElementById('totalGrossIncome').textContent = formatCurrency(total);
+
+      // Show/hide extra income fields based on step 2
+      document.getElementById('businessIncomeGroup').style.display =
+        document.getElementById('srcBusiness').checked ? 'block' : 'none';
+      document.getElementById('rentalIncomeGroup').style.display =
+        document.getElementById('srcRental').checked ? 'block' : 'none';
+    }
+
+    function updateDeductions() {
+      const d = getDeductions();
+      const nhif = getNHIF();
+      const ins = getInsurance();
+      document.getElementById('totalDeductions').textContent = formatCurrency(d.total + nhif + ins);
+    }
+
+    function updateTaxableIncome() {
+      const gross = getGrossIncome();
+      const d = getDeductions();
+      const taxable = Math.max(0, gross - d.nssf - d.housing);
+
+      document.getElementById('calcGross').textContent = formatCurrency(gross);
+      document.getElementById('calcNSSF').textContent = '- ' + formatCurrency(d.nssf);
+      document.getElementById('calcHousing').textContent = '- ' + formatCurrency(d.housing);
+      document.getElementById('calcTaxable').textContent = formatCurrency(taxable);
+    }
+
+    function updateTaxCalc() {
+      const gross = getGrossIncome();
+      const d = getDeductions();
+      const taxable = Math.max(0, gross - d.nssf - d.housing);
+      const monthlyTaxable = taxable / 3;
+
+      // Calculate tax per bracket
+      let band1 = Math.min(monthlyTaxable, 24000) * 0.10;
+      let band2 = Math.max(0, Math.min(monthlyTaxable - 24000, 8333)) * 0.25;
+      let band3 = Math.max(0, monthlyTaxable - 32333) * 0.30;
+      let monthlyTax = band1 + band2 + band3;
+
+      const personalRelief = 2400;
+      const nhif = getNHIF();
+      const ins = getInsurance();
+      const insRelief = Math.min((nhif + ins) * 0.15 / 3, 5000); // 15% of premiums, max 5000/month
+
+      const netMonthly = Math.max(0, monthlyTax - personalRelief - insRelief);
+      const quarterly = Math.round(netMonthly * 3);
+
+      document.getElementById('taxCalcTaxable').textContent = formatCurrency(taxable);
+      document.getElementById('taxCalcMonthly').textContent = formatCurrency(Math.round(monthlyTaxable));
+      document.getElementById('taxBand1').textContent = formatCurrency(Math.round(band1));
+      document.getElementById('taxBand2').textContent = formatCurrency(Math.round(band2));
+      document.getElementById('taxBand3').textContent = formatCurrency(Math.round(band3));
+      document.getElementById('taxMonthly').textContent = formatCurrency(Math.round(monthlyTax));
+      document.getElementById('taxRelief').textContent = '- ' + formatCurrency(personalRelief);
+      document.getElementById('taxInsRelief').textContent = '- ' + formatCurrency(Math.round(insRelief));
+      document.getElementById('taxNetMonthly').textContent = formatCurrency(Math.round(netMonthly));
+      document.getElementById('taxQuarterly').textContent = formatCurrency(quarterly);
+    }
+
+    function updatePaymentAmount() {
+      const gross = getGrossIncome();
+      const d = getDeductions();
+      const taxable = Math.max(0, gross - d.nssf - d.housing);
+      const monthlyTaxable = taxable / 3;
+
+      let band1 = Math.min(monthlyTaxable, 24000) * 0.10;
+      let band2 = Math.max(0, Math.min(monthlyTaxable - 24000, 8333)) * 0.25;
+      let band3 = Math.max(0, monthlyTaxable - 32333) * 0.30;
+      let monthlyTax = band1 + band2 + band3;
+      const personalRelief = 2400;
+      const nhif = getNHIF();
+      const ins = getInsurance();
+      const insRelief = Math.min((nhif + ins) * 0.15 / 3, 5000);
+      const netMonthly = Math.max(0, monthlyTax - personalRelief - insRelief);
+      const quarterly = Math.round(netMonthly * 3);
+
+      document.getElementById('paymentAmount').textContent = formatCurrency(quarterly);
+    }
+
+    function updateReview() {
+      const gross = getGrossIncome();
+      const d = getDeductions();
+      const nhif = getNHIF();
+      const ins = getInsurance();
+      const taxable = Math.max(0, gross - d.nssf - d.housing);
+      const monthlyTaxable = taxable / 3;
+
+      let band1 = Math.min(monthlyTaxable, 24000) * 0.10;
+      let band2 = Math.max(0, Math.min(monthlyTaxable - 24000, 8333)) * 0.25;
+      let band3 = Math.max(0, monthlyTaxable - 32333) * 0.30;
+      let monthlyTax = band1 + band2 + band3;
+      const personalRelief = 2400;
+      const insRelief = Math.min((nhif + ins) * 0.15 / 3, 5000);
+      const netMonthly = Math.max(0, monthlyTax - personalRelief - insRelief);
+      const quarterly = Math.round(netMonthly * 3);
+
+      const quarter = document.querySelector('input[name="quarter"]:checked')?.value || 'Q4';
+      const year = document.getElementById('taxYear').value;
+      const payMethod = document.querySelector('input[name="payMethod"]:checked')?.value || 'mpesa';
+      const methodLabels = { mpesa: 'M-PESA', bank: 'Bank Transfer', card: 'Credit/Debit Card' };
+
+      if (session) {
+        document.getElementById('revName').textContent = session.name;
+        document.getElementById('revPin').textContent = session.pin;
+      }
+      document.getElementById('revPeriod').textContent = quarter + ' ' + year;
+      document.getElementById('revGross').textContent = formatCurrency(gross);
+      document.getElementById('revDeductions').textContent = formatCurrency(d.total + nhif + ins);
+      document.getElementById('revTaxable').textContent = formatCurrency(taxable);
+      document.getElementById('revTax').textContent = formatCurrency(quarterly);
+      document.getElementById('revPayment').textContent = methodLabels[payMethod] || payMethod;
+    }
+
+    // Submit
+    function submitReturn() {
+      showLoading('Submitting your return...', 'Please wait while we process your filing.');
+      clearDraft('taxReturnDraft');
+
+      setTimeout(() => {
+        hideLoading();
+        document.getElementById('successModal').classList.add('active');
+      }, 2500);
+    }
+
+    // Auto-save
+    function doAutoSave() {
+      const data = {
+        employmentIncome: document.getElementById('employmentIncome').value,
+        businessIncome: document.getElementById('businessIncome').value,
+        rentalIncome: document.getElementById('rentalIncome').value,
+        nssfDeduction: document.getElementById('nssfDeduction').value,
+        nhifDeduction: document.getElementById('nhifDeduction').value,
+        insuranceDeduction: document.getElementById('insuranceDeduction').value,
+        housingDeduction: document.getElementById('housingDeduction').value,
+        currentStep: currentStep
+      };
+      saveDraft('taxReturnDraft', data);
+      showAutoSave('saved');
+    }
+
+    // Auto-save on input change
+    document.querySelectorAll('.wizard-form-card input, .wizard-form-card select').forEach(el => {
+      el.addEventListener('change', () => {
+        showAutoSave('saving');
+        setTimeout(() => doAutoSave(), 800);
+      });
+    });
+
+    // Income input change
+    document.getElementById('employmentIncome').addEventListener('input', updateGrossIncome);
+
+    // Save draft button
+    document.getElementById('saveDraftBtn').addEventListener('click', () => {
+      doAutoSave();
+      showToast('Draft saved successfully', 'success');
+    });
+
+    // Payment method toggle
+    document.querySelectorAll('input[name="payMethod"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        const phoneGroup = document.getElementById('mpesaPhoneGroup');
+        phoneGroup.style.display = radio.value === 'mpesa' && radio.checked ? 'block' : 'block';
+        if (radio.value !== 'mpesa') phoneGroup.style.display = 'none';
+      });
+    });
+
+    // Keyboard nav
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+        if (currentStep < totalSteps) {
+          e.preventDefault();
+          goToStep(currentStep + 1);
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
