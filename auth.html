@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KRA iTax System - Login" />
+  <title>Login | KRA iTax System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="system-styles.css" />
+</head>
+
+<body class="system-page">
+  <div class="auth-container">
+    <!-- Left Side: Hero Image -->
+    <div class="auth-hero" style="
+          background:
+            linear-gradient(
+              135deg,
+              rgba(185, 28, 28, 0.82),
+              rgba(220, 38, 38, 0.7)
+            ),
+            url(&quot;assets/Background.png&quot;) center/cover no-repeat;
+        ">
+      <a href="itax-redesign.html" class="auth-back-btn" aria-label="Go back to case study">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12" />
+          <polyline points="12 19 5 12 12 5" />
+        </svg>
+        Back
+      </a>
+      <div class="auth-hero-content">
+        <h1>Welcome to KRA</h1>
+        <p>Tulipe Ushuru, Tujitegemee</p>
+      </div>
+    </div>
+
+    <!-- Right Side: Login Form -->
+    <div class="auth-form-side">
+      <div class="auth-form-card fade-in">
+        <!-- KRA Logo -->
+        <img class="auth-logo" id="kraLogo" src="assets/KRA_Logo.png"></img>
+
+        <!-- eCitizen Login
+          <button
+            type="button"
+            class="ecitizen-btn"
+            id="eCitizenBtn"
+            aria-label="Login with eCitizen"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect
+                width="24"
+                height="24"
+                rx="4"
+                fill="#006600"
+                opacity="0.1"
+              />
+              <text
+                x="12"
+                y="16"
+                text-anchor="middle"
+                fill="#006600"
+                font-size="8"
+                font-weight="700"
+                font-family="Inter"
+              >
+                GK
+              </text>
+            </svg>
+            <span style="color: var(--text-secondary); font-size: 14px"
+              >eCitizen</span
+            >
+            <span class="ecitizen-badge">Login with eCitizen</span>
+          </button>
+
+           Divider
+          <div class="divider">Or</div> -->
+
+        <!-- Login Form -->
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="kraPin" class="form-label">KRA PIN/ID Number</label>
+            <input type="text" id="kraPin" class="form-input" value="A012345678X" placeholder="Enter your KRA PIN"
+              autocomplete="username" aria-required="true" />
+            <p class="form-error" id="pinError">Please enter your KRA PIN</p>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-row">
+              <label for="password" class="form-label" style="margin-bottom: 0">Password</label>
+              <a href="#" class="orange-link" id="forgotPassword" style="font-size: 13px">Forgot password?</a>
+            </div>
+            <div class="input-wrapper">
+              <input type="password" id="password" class="form-input" value="password123"
+                placeholder="Enter your password" autocomplete="current-password" aria-required="true" />
+              <button type="button" class="input-icon-btn" id="togglePassword" aria-label="Toggle password visibility">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+            <p class="form-error" id="passwordError">
+              Please enter your password
+            </p>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full btn-lg" id="loginBtn">
+            Login
+          </button>
+        </form>
+
+        <!-- Create Account -->
+        <p class="text-center mt-2" style="font-size: 14px">
+          Don't have an account?
+          <a href="#" class="orange-link" id="createAccount">Create Account</a>
+        </p>
+
+        <!-- Footer Links -->
+        <div class="auth-links">
+          <a href="#">Privacy &amp; Terms</a>
+          <a href="#">Help &amp; Support</a>
+          <a href="#">Register for KRA PIN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay" role="alert" aria-live="assertive">
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading...</p>
+    <p class="loading-subtext">
+      This may take a few seconds, please don't close this page.
+    </p>
+  </div>
+
+  <script src="system-script.js"></script>
+  <script>
+    // Insert KRA logo
+    document.getElementById("kraLogo").innerHTML = getKRALogoHeaderSVG();
+
+    // Toggle password visibility
+    const toggleBtn = document.getElementById("togglePassword");
+    const passwordInput = document.getElementById("password");
+    let passwordVisible = false;
+
+    toggleBtn.addEventListener("click", () => {
+      passwordVisible = !passwordVisible;
+      passwordInput.type = passwordVisible ? "text" : "password";
+      toggleBtn.innerHTML = passwordVisible
+        ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>`
+        : `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>`;
+      toggleBtn.setAttribute(
+        "aria-label",
+        passwordVisible ? "Hide password" : "Show password",
+      );
+    });
+
+    // Login form submission
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const pin = document.getElementById("kraPin").value.trim();
+      const pass = document.getElementById("password").value.trim();
+      let valid = true;
+
+      // Validate
+      if (!pin) {
+        document.getElementById("kraPin").classList.add("error");
+        document.getElementById("pinError").classList.add("visible");
+        valid = false;
+      } else {
+        document.getElementById("kraPin").classList.remove("error");
+        document.getElementById("pinError").classList.remove("visible");
+      }
+
+      if (!pass) {
+        document.getElementById("password").classList.add("error");
+        document.getElementById("passwordError").classList.add("visible");
+        valid = false;
+      } else {
+        document.getElementById("password").classList.remove("error");
+        document.getElementById("passwordError").classList.remove("visible");
+      }
+
+      if (!valid) return;
+
+      // Find user or use default
+      let user = USERS.find((u) => u.pin === pin) || USERS[0];
+      setSession(user);
+
+      // Show loading
+      showLoading("Logging in...", "Verifying your credentials securely.");
+
+      setTimeout(() => {
+        window.location.href = "otp.html";
+      }, 1800);
+    });
+
+    // eCitizen button
+    document.getElementById("eCitizenBtn").addEventListener("click", () => {
+      setSession(USERS[0]);
+      showLoading(
+        "Connecting to eCitizen...",
+        "Redirecting to government portal.",
+      );
+      setTimeout(() => {
+        window.location.href = "otp.html";
+      }, 2000);
+    });
+
+    // Forgot password
+    document
+      .getElementById("forgotPassword")
+      .addEventListener("click", (e) => {
+        e.preventDefault();
+        showToast("Password reset link sent to your email", "success");
+      });
+
+    // Create account
+    document
+      .getElementById("createAccount")
+      .addEventListener("click", (e) => {
+        e.preventDefault();
+        showToast("Redirecting to registration portal...", "info");
+      });
+
+    // Clear errors on input
+    document.getElementById("kraPin").addEventListener("input", () => {
+      document.getElementById("kraPin").classList.remove("error");
+      document.getElementById("pinError").classList.remove("visible");
+    });
+    document.getElementById("password").addEventListener("input", () => {
+      document.getElementById("password").classList.remove("error");
+      document.getElementById("passwordError").classList.remove("visible");
+    });
+  </script>
+</body>
+
+</html>
