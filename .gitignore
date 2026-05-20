@@ -1,0 +1,10 @@
+# Report generation
+generate_report.py
+ITAX_REDESIGN_FINAL_REPORT.docx
+PROJECT_REPOSITORY_SUMMARY.md
+
+# Presentation slides
+slides/
+
+# Binary documents in assets
+assets/Playbook.pdf
