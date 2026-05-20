@@ -9,9 +9,9 @@
 const USERS = [
   {
     pin: "A012345678X",
-    name: "Gideon Kipamet Kaiyian",
-    phone: "+254 712 345 678",
-    email: "gideon.k@example.com",
+    name: "John Doe",
+    phone: "+254 700 000 000",
+    email: "john.doe@example.com",
     accountType: "personal",
     businesses: [],
   },
